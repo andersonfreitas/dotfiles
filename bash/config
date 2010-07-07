@@ -1,6 +1,7 @@
 # Colors from http://wiki.archlinux.org/index.php/Color_Bash_Prompt
 # misc
 NO_COLOR='\e[0m' #disable any colors
+BLINK="\e[5m" # blinking text
 # regular colors
 BLACK='\e[0;30m'
 RED='\e[0;31m'
@@ -37,8 +38,6 @@ BBLUE='\e[44m'
 BMAGENTA='\e[45m'
 BCYAN='\e[46m'
 BWHITE='\e[47m'
-
-BLINK="\e[5m"
 
 function parse_git_dirty {
   [[ $(git status 2> /dev/null | tail -n1) != "nothing to commit (working directory clean)" ]] && printf "$BLINK*$NO_COLOR$EYELLOW"
