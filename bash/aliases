@@ -15,7 +15,7 @@ function med() {
 alias a='ls -A' # -A all except literal . ..
 alias la="ls -A -l -G"
 alias c='clear'
-alias cdd='cd -'  # goto last dir cd'ed from
+#alias cdd='cd -'  # goto last dir cd'ed from
 alias cl='clear; l'
 function cdc() { 
     cd $1; ls 
@@ -29,7 +29,7 @@ alias lh="ls -lh"
 alias ll='ls -lhG'  # -l long listing, human readable, no group info
 alias lt='ls -lt' # sort with recently modified first
 alias md='mkdir -p'
-alias s='cd ..'   # up one dir
+alias ..='cd ..'   # up one dir
 
 function mkcd() { 
     mkdir -p "$1"
@@ -54,7 +54,7 @@ alias tu='top -o cpu' # cpu
 alias tm='top -o vsize' # memory
 
 # Git
-alias ungit="find . -name '.git' -exec rm -rf {} \;"
+#alias ungit="find . -name '.git' -exec rm -rf {} \;"
 alias gb='git branch'
 alias gba='git branch -a'
 alias gc='git commit -v'
@@ -131,4 +131,3 @@ function __rm_single_file(){
         echo "No such file or directory: $file"
     fi
 }
-
