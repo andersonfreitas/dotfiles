@@ -69,9 +69,9 @@ alias gdm='git diff master'
 alias gl='git pull'
 alias gnp="git-notpushed"
 alias gp='git push'
-alias gst='git status'
+alias gs='git status'
 alias gt='git status'
-alias g='git status'
+alias g='git'
 alias eg='mate .git/config'
 
 # Quickly clobber a file and checkout
