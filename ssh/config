@@ -1,5 +1,3 @@
-# Para funcionar, é necessário criar o link
-# ln -s ~/bin/dotfiles/ssh/config ~/.ssh/config
 
 Host staging
   HostName staging.medscale.com.br
