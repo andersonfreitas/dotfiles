@@ -1,3 +1,5 @@
 export CLICOLOR=1
 export EDITOR="mate -w"
 export PATH=~/bin:$PATH
+
+export HISTSIZE=10000
