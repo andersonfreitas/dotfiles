@@ -1,5 +1,8 @@
 # Command Enhancements
 
+# Colored grep
+alias grep='GREP_COLOR="1;37;41" LANG=C grep --color=auto'
+
 # Utility
 alias reload='source ~/bin/dotfiles/bash/aliases'
 alias ea='mate -w ~/bin/dotfiles/bash/aliases && reload' # Edit aliases
