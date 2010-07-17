@@ -74,6 +74,7 @@ alias gnp="git-notpushed"
 alias gp='git push'
 alias gs='git status'
 alias gt='git status'
+alias gw='git whatchanged'
 alias g='git'
 alias eg='mate .git/config'
 
