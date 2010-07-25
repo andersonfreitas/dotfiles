@@ -1,4 +1,4 @@
 export CLICOLOR=1
 export EDITOR="mate -w"
-export PATH=~/bin:/opt/local/bin:/opt/local/sbin:$PATH
+export PATH=~/bin:/opt/local/bin:/opt/local/sbin:/usr/local/mysql/bin:$PATH
 export HISTSIZE=10000
