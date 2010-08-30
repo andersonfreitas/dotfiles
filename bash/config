@@ -39,11 +39,14 @@ BMAGENTA='\e[45m'
 BCYAN='\e[46m'
 BWHITE='\e[47m'
 
+function parse_git_ahead_origin {
+  [[ $(git log origin/master.. 2> /dev/null | wc -l) != "       0" ]] && printf ">$EYELLOW"
+}
 function parse_git_dirty {
   [[ $(git status 2> /dev/null | tail -n1) != "nothing to commit (working directory clean)" ]] && printf "$BLINK*$NO_COLOR$EYELLOW"
 }
 function parse_git_branch {
-  git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/[\1$(parse_git_dirty)]/"
+  git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/[$(parse_git_ahead_origin)\1$(parse_git_dirty)]/"
 }
 
 PS1="\n\u:\w \[$EYELLOW\]\$(parse_git_branch)\[$NO_COLOR\] \n→ "
