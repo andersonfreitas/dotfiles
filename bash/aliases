@@ -44,6 +44,11 @@ function dec() {
 	mate `basename $1 .class`.java
 }
 
+function jgrep() {
+	fgrep -i "$*" `find . -name '*.java'`
+}
+
+
 alias e='exit'
 alias k9="killall -9"
 function killnamed () { 
