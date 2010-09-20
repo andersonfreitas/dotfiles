@@ -39,6 +39,11 @@ function mkcd() {
     cd "$1" 
 }
 
+function dec() {
+	jad -s java $1
+	mate `basename $1 .class`.java
+}
+
 alias e='exit'
 alias k9="killall -9"
 function killnamed () { 
