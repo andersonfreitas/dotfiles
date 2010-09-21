@@ -74,9 +74,9 @@ hardstatus alwayslastline
 #hardstatus string '%{= M} %H%{= B} %l %= %{= w}%-w%{+b r}%n*%t%{-b r}%{w}%+w %= %{c}%d %D %{B}%c '
 #hardstatus string "%?%{gk}%-Lw%?%{mk}%n*%f %t%?(%u)%?%?%{gk}%+Lw%?%{Yk} | %{yk}RPD: %{Bk}%1`"
 
-backtick 1 60 60 pwd
+#backtick 1 1 1 date
 
-hardstatus string '%{= dK}%-Lw%{= dW}%50>%n%f* %t%{= dK}%+Lw%< %{= Lw}%-=%l %{-}'
+hardstatus string '%{= dK}%-Lw%{= dW}%50>%n%f* %t%{= dK}%+Lw%< %{= Lw} %1` %-=%l %{9}%s%{-}'
 
 screen -t logs 3 
 #stuff "tail -F /var/log/system.log\012"
