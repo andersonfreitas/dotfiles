@@ -74,7 +74,7 @@ hardstatus alwayslastline
 #hardstatus string '%{= M} %H%{= B} %l %= %{= w}%-w%{+b r}%n*%t%{-b r}%{w}%+w %= %{c}%d %D %{B}%c '
 #hardstatus string "%?%{gk}%-Lw%?%{mk}%n*%f %t%?(%u)%?%?%{gk}%+Lw%?%{Yk} | %{yk}RPD: %{Bk}%1`"
 
-#backtick 1 1 1 date
+#backtick 1 1 1 git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/[$(parse_git_ahead_origin)\1$(parse_git_dirty)]/"
 
 hardstatus string '%{= dK}%-Lw%{= dW}%50>%n%f* %t%{= dK}%+Lw%< %{= Lw} %1` %-=%l %{9}%s%{-}'
 
