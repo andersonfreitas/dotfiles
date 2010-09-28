@@ -76,6 +76,7 @@ alias gb='git branch'
 alias gba='git branch -a'
 alias gi='git add -i'
 alias gc='git commit -v'
+alias g.='git add .'
 alias gca='git commit -v -a'
 # Commit pending changes and quote all args as message
 function gg() { 
@@ -107,6 +108,11 @@ function new-git() {
   git config branch.master.merge refs/heads/master
   git config push.default current
 }
+
+
+## Rails
+
+alias r=rails
 
 # Text editing
 
