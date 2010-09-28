@@ -11,7 +11,11 @@ alias ee="mate ~/bin/dotfiles/bash/env"
 alias cw='cd ~/Java/vaadin/workspace-vaadin/'
 
 function med() {
- cd ~/Java/vaadin/workspace-vaadin/medscale-$*
+   if [ $1 = "fw" ]; then
+      cd ~/Java/vaadin/workspace-vaadin/medscale-framework
+   else
+      cd ~/Java/vaadin/workspace-vaadin/medscale-$*
+   fi
 }
 
 # Common -- Some are from Damian Conway
