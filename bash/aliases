@@ -169,6 +169,18 @@ function __rm_single_file(){
     fi
 }
 
+function win() {
+  osascript 2>/dev/null <<EOF
+    tell application "System Events"
+      tell process "Terminal" to keystroke "n" using command down
+    end
+    tell application "Terminal"
+      activate
+      do script with command "cd \"$PWD\"; $*" in window 1
+    end tell
+EOF
+}
+
 # http://github.com/revans/bash-it/blob/master/plugins/osx.plugin.bash
 function tab() {
   osascript 2>/dev/null <<EOF
@@ -181,3 +193,4 @@ function tab() {
     end tell
 EOF
 }
+
