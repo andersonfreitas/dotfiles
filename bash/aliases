@@ -98,6 +98,11 @@ function gdiff() {
 	find . -name "*$**" -exec git diff HEAD -- {} +; 
 }
 
+# from http://github.com/revans/bash-it/blob/master/plugins/git.plugins.bash
+function git_remove_missing_files() {
+  git ls-files -d -z | xargs -0 git update-index --remove
+}
+
 alias g='git'
 alias eg='mate .git/config'
 
@@ -162,4 +167,17 @@ function __rm_single_file(){
     else
         echo "No such file or directory: $file"
     fi
+}
+
+# http://github.com/revans/bash-it/blob/master/plugins/osx.plugin.bash
+function tab() {
+  osascript 2>/dev/null <<EOF
+    tell application "System Events"
+      tell process "Terminal" to keystroke "t" using command down
+    end
+    tell application "Terminal"
+      activate
+      do script with command "cd \"$PWD\"; $*" in window 1
+    end tell
+EOF
 }
