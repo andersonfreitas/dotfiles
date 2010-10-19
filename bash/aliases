@@ -93,6 +93,11 @@ alias gp='git push'
 alias gs='git status'
 alias gt='git status'
 alias gw='git whatchanged'
+
+function gdiff() {
+	find . -name "*$**" -exec git diff HEAD -- {} +; 
+}
+
 alias g='git'
 alias eg='mate .git/config'
 
