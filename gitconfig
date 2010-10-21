@@ -1,0 +1,23 @@
+[user]
+	name = Anderson Freitas
+	email = anderson.amf@gmail.com
+[color]
+	status = auto
+	branch = auto
+	ui = auto
+[core]
+	editor = mate -w
+[alias]
+	oneline = log --pretty=oneline
+	co = checkout
+	ci = commit
+	la = log --pretty=\"format:%ad %h (%an): %s\" --date=short --graph --all
+	br = branch
+[diff]
+	tool = araxisgitdiff
+[merge]
+	tool = araxis
+[mergetool "araxis"]
+	cmd = araxis-mergetool \"$LOCAL\" \"$REMOTE\" \"$MERGED\" \"$BASE\"
+	trustExitCode = false
+	keepBackup = false
