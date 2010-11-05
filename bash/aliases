@@ -197,3 +197,12 @@ function tab() {
 EOF
 }
 
+# network utils iftop
+alias iftop='sudo iftop -i en1'
+alias ntop=iftop
+alias wtop=iftop
+alias tcptrack=iftop
+
+
+alias clojure='rlwrap java -jar ~/Development/clojure/bin/clojure-1.2.0/clojure.jar'
+
