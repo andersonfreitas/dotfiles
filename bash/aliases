@@ -61,7 +61,7 @@ alias ff='open -a Firefox'
 
 # Processes
 alias tu='top -o cpu' # cpu
-alias tm='top -o vsize' # memory
+# alias tm='top -o vsize' # memory
 
 alias orig-remove="find . -name '*.orig' -exec rm -rf {} \;"
 
