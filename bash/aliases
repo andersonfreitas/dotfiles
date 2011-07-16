@@ -41,6 +41,13 @@ function dec() {
 	mate `basename $1 .class`.java
 }
 
+function decdir() {
+	for a in $(find . -name '*.class')
+	do 
+		jad -s java -d `dirname $a` $a
+	done
+}
+
 function jgrep() {
 	fgrep -i "$*" `find . -name '*.java'`
 }
