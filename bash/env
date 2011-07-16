@@ -4,6 +4,9 @@ export PATH=~/bin:~/bin/araxis-utils:/opt/local/bin:/opt/local/sbin:/usr/local/m
 export PATH=$PATH
 export HISTSIZE=10000
 
+#PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME%%.*}:${PWD/#$HOME/~}"; echo -ne "\007"'
+export PROMPT_COMMAND='echo -ne "\033]0;${PWD/#$HOME/~}"; echo -ne "\007"'
+
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
 
 # tmproj
