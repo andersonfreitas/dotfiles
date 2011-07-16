@@ -9,10 +9,7 @@ function parse_git_branch {
   git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/[\1$(parse_git_dirty)]/"
 }
 
-#PS1="\n\u:\w \[$EYELLOW\]\$(parse_git_branch)\[$NO_COLOR\] \n→ "
-
-
-PROMPT='%~ %{$fg_bold[white]%}$(parse_git_branch)
+PROMPT='%n:%~ %{$fg_bold[yellow]%}$(parse_git_branch)
 → %{$reset_color%}'
 
 # Set RPROMPT to have info show up on the right, too.
