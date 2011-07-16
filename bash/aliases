@@ -22,7 +22,7 @@ function cdc() {
 }
 alias cls='clear; ls'
 alias h='history'
-alias l.='ls -d .[^.]*'
+alias l.='ls -d .[^.]*' 
 alias l='ls -lhGt'  # -l long listing, most recent first
                     # -G color
 alias lh="ls -lh"
@@ -103,6 +103,10 @@ alias gs='git status'
 alias gt='git status'
 alias gw='git whatchanged'
 
+alias gppom='git pull origin master && git push origin master'
+
+alias restart_rails='touch tmp/restart.txt'
+
 function gdiff() {
 	find . -name "*$**" -exec git diff HEAD -- {} +; 
 }
@@ -122,8 +126,8 @@ function grf() {
 }
 # Call from inside an initialized Git repo, with the name of the repo.
 function new-git() {
-  ssh git@example.com "mkdir $1.git && cd $1.git && git --bare init"
-  git remote add origin git@example.com:$1.git
+  ssh root@git.medscale.com.br "mkdir $1.git && cd $1.git && git --bare init"
+  git remote add origin root@git.medscale.com.br:$1.git
   git push origin master
   git config branch.master.remote origin
   git config branch.master.merge refs/heads/master
@@ -209,6 +213,36 @@ alias ntop=iftop
 alias wtop=iftop
 alias tcptrack=iftop
 
+function ssh_network_throughtput() {
+	host=$1
+	yes | pv | ssh $host “cat > /dev/null”	
+}
+
+alias count_java='wc -l `find . -name \*.java -print`'
+alias count_c='wc -l `find . -name \*.c -print`'
+
+alias rebuild-open-with='/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user'
+
+# 19) RESUME SCP OF A BIG FILE
+# 
+# rsync –partial –progress –rsh=ssh $file_source $user@$host:$destination_file
+# 
+# It can resume a failed secure copy ( usefull when you transfer big files like db dumps through vpn ) using rsync.
+# It requires rsync installed in both hosts.
+# rsync –partial –progress –rsh=ssh $file_source $user@$host:$destination_file local -> remote
+# or
+# rsync –partial –progress –rsh=ssh $user@$host:$remote_file $destination_file remote -> local
+
+# 23) THROTTLE BANDWIDTH WITH CSTREAM
+# 
+# tar -cj /backup | cstream -t 777k | ssh host ‘tar -xj -C /backup’
+# 
+# this bzips a folder and transfers it over the network to “host” at 777k bit/s.
+# cstream can do a lot more, have a look http://www.cons.org/cracauer/cstream.html#usage
+# for example:
+# echo w00t, i’m 733+ | cstream -b1 -t2
+
+
 ## Utility to create bookmarks
 function m {
 	cat ~/.sdirs | grep -v "export DIR_$1=" > ~/.sdirs1
@@ -243,5 +277,62 @@ function _gocomp {
 complete -F _gocomp go
 # Usage: go [TAB]
 
+alias noidle="pmset noidle"
+
+###
+# Upload a file using ditto and curl
+# ditto -cj build/Debug-iphonesimulator/YourApp.app - | curl -F "email=you@somewhere.com" -F "file=@-" http://www.pieceable.com/view/publish 
+#
+
+# Random password generator
+# while true; do cat /dev/urandom | hexdump | tr -cd "a-z" | tr "a-z" "A-Z" | head -c3; echo ""; done;
 
 
+
+# → sandbox-exec -p '(version 1) (allow default) (deny network*)' /bin/bash 
+
+# https://github.com/rtomayko/bcat
+
+bman () {
+    gunzip < `man -w $@` | groff -Thtml -man | bcat
+}
+
+manmate () {
+  MANWIDTH=80 MANPAGER='col -bx' man $@ | mate
+}
+
+alias myip="dig +short myip.opendns.com @resolver1.opendns.com"
+
+alias flush="dscacheutil -flushcache" # Flush DNS cache
+alias flushcache='dscacheutil -flushcache'
+
+alias ql="qlmanage -p 2>/dev/null" # preview a file using QuickLook
+
+
+alias traceroute=mtr
+
+# The files are read in this order:
+#   /etc/profile
+#   ~/.bash_profile
+#   ~/.bash_login (if .bash_profile does not exist)
+#   ~/.profile    (if .bash_profile does not exist)
+#   .bashrc     (when starting bash from the command line - reads from pwd)
+#   ~/.MacOSX/environment.plist
+#  or
+#   /etc/paths
+#   /etc/paths.d/
+# 
+function show_path () {
+	echo $PATH | tr ':' '\n' | nl
+}
+
+function f() {
+  find * -name $1
+}
+
+# Exemplos de find
+# 	Busca por string em apenas alguns arquivos 
+# 	find . | grep en.yml | xargs fgrep "example"
+
+# replacement netstat cmd to find ports used by apps on OS X
+alias netstat_osx="sudo lsof -i -P"
