@@ -11,16 +11,6 @@ alias reload='source ~/bin/dotfiles/bash/aliases'
 alias ea='mate -w ~/bin/dotfiles/bash/aliases && reload' # Edit aliases
 alias ee="mate ~/bin/dotfiles/bash/env"
 
-alias cw='cd ~/Java/vaadin/workspace-vaadin/'
-
-function med() {
-   if [ $1 = "fw" ]; then
-      cd ~/Java/vaadin/workspace-vaadin/medscale-framework
-   else
-      cd ~/Java/vaadin/workspace-vaadin/medscale-$*
-   fi
-}
-
 # Common -- Some are from Damian Conway
 alias a='ls -A' # -A all except literal . ..
 alias la="ls -A -l -G"
@@ -204,5 +194,4 @@ alias wtop=iftop
 alias tcptrack=iftop
 
 
-alias clojure='rlwrap java -jar ~/Development/clojure/bin/clojure-1.2.0/clojure.jar'
 
