@@ -3,6 +3,9 @@ export EDITOR="mate -w"
 export PATH=~/bin:~/bin/araxis-utils:/opt/local/bin:/opt/local/sbin:/usr/local/mysql/bin:/usr/local/git/bin:/Developer/usr/bin:$PATH
 export PATH=$PATH
 export HISTSIZE=10000
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
+
 # tmproj
 # Just add tab-completion to `tm`
 complete -W '$(ls ~/.tmproj | sed s/.tmproj//)' tm
