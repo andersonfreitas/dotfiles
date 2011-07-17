@@ -139,6 +139,9 @@ function new-git() {
 
 alias r=rails
 
+alias rl='less log/development.log'
+
+
 # Text editing
 
 function markdown() { 
