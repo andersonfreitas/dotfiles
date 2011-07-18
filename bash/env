@@ -17,3 +17,7 @@ complete -W '$(ls ~/.tmproj | sed s/.tmproj//)' tm
 alias mate='tm'
 complete -f -W '$(ls ~/.tmproj | sed s/.tmproj//)' mate
 
+export PAGER='less' # less is more (than more)
+export LESSEDIT='mate -l %lm %f' # open in textmate from less
+export LESS='-XFRf' # don't clear screen on exit, show colors
+
