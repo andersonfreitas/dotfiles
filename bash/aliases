@@ -105,8 +105,6 @@ alias gw='git whatchanged'
 
 alias gppom='git pull origin master && git push origin master'
 
-alias restart_rails='touch tmp/restart.txt'
-
 function gdiff() {
 	find . -name "*$**" -exec git diff HEAD -- {} +; 
 }
@@ -136,11 +134,11 @@ function new-git() {
 
 
 ## Rails
-
 alias r=rails
 
 alias rl='less log/development.log'
 
+alias rrails='touch tmp/restart.txt'
 
 # Text editing
 
