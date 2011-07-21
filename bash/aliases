@@ -339,3 +339,11 @@ function f() {
 
 # replacement netstat cmd to find ports used by apps on OS X
 alias netstat_osx="sudo lsof -i -P"
+
+
+# brew info mongodb
+# mongo="~/Library/LaunchAgents/org.mongodb.mongod.plist"
+mongo_plist="/usr/local/Cellar/mongodb/1.8.2-x86_64/org.mongodb.mongod.plist"
+# alias mongo-start="mongod run --config /usr/local/Cellar/mongodb/1.8.2-x86_64/mongod.conf"
+alias mongo-start="launchctl load -w $mongo_plist"
+alias mongo-stop="launchctl unload -w $mongo_plist"
