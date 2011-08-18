@@ -350,3 +350,26 @@ alias mongo-stop="launchctl unload -w $mongo_plist"
 alias show_folder="chflags nohidden $1"
 alias hide_folder="chflags hidden $1"
 
+
+# Create a file called ~/.s3key with the following lines:
+#   line #1: YOUR AWS ACCESS KEY
+#   line #2: YOUR AWS SECRET KEY
+#
+# usage:
+#   s3put mybackup.tgz bucket/name
+# 
+function s3put() {
+	local aws_access_key=`awk 'NR==1' ~/.s3key`
+	local aws_secret_key=`awk 'NR==2' ~/.s3key`
+	local date=`date '+%a, %d %h %Y %T %z'`
+	local contentmd5=`openssl dgst -md5 -binary $1 | openssl enc -e -base64`
+	local signed=`printf "PUT\n$contentmd5\napplication/octec-stream\n$date\n/$2/$1" | openssl dgst -sha1 -hmac "$aws_secret_key" -binary | openssl base64`
+
+	curl -T $1 \
+		--dump-header /dev/null \
+		--header "Date: $date" \
+		--header "Authorization: AWS $aws_access_key:$signed" \
+		--header "Content-Type: application/octec-stream" \
+		--header "Content-MD5: $contentmd5" \
+		http://s3.amazonaws.com/$2/$1
+}
