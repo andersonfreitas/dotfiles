@@ -345,3 +345,8 @@ mongo_plist="/usr/local/Cellar/mongodb/1.8.2-x86_64/org.mongodb.mongod.plist"
 # alias mongo-start="mongod run --config /usr/local/Cellar/mongodb/1.8.2-x86_64/mongod.conf"
 alias mongo-start="launchctl load -w $mongo_plist"
 alias mongo-stop="launchctl unload -w $mongo_plist"
+
+# chflags nohidden ~/Library/
+alias show_folder="chflags nohidden $1"
+alias hide_folder="chflags hidden $1"
+
