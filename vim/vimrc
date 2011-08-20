@@ -1,0 +1,8 @@
+if has("gui_running")
+  set guioptions=-t
+endif
+
+set hidden
+set number
+#set hlsearch
+#set incsearch
