@@ -31,9 +31,6 @@
 [submodule "vim/bundle/vim-fugitive"]
 	path = vim/bundle/vim-fugitive
 	url = git://github.com/tpope/vim-fugitive.git
-[submodule "vim/bundle/markdown-preview"]
-	path = vim/bundle/markdown-preview.vim
-	url = git://github.com/mkitt/markdown-preview.vim.git
 [submodule "vim/bundle/vim-pathogen"]
 	path = vim/bundle/vim-pathogen
 	url = git://github.com/tpope/vim-pathogen.git
