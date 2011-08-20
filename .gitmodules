@@ -7,3 +7,9 @@
 [submodule "vim/bundle/vim-rails"]
 	path = vim/bundle/vim-rails
 	url = git://github.com/tpope/vim-rails.git
+[submodule "vim/bundle/vim-fuzzyfinder"]
+	path = vim/bundle/vim-fuzzyfinder
+	url = git://github.com/clones/vim-fuzzyfinder.git
+[submodule "vim/bundle/L9"]
+	path = vim/bundle/L9
+	url = git://github.com/vim-scripts/L9.git
