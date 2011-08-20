@@ -2,10 +2,11 @@ set guifont=Monaco:h12            " Font family and font size.
 set antialias                     " MacVim: smooth fonts.
 set encoding=utf-8                " Use UTF-8 everywhere.
 set guioptions-=T                 " Hide toolbar.
-set background=light              " Background.
+set background=dark               " Background.
 set lines=30 columns=130          " Window dimensions.
 
 " Uncomment to use.
 " set guioptions-=r                 " Don't show right scrollbar
 
+colorscheme solarized
 
