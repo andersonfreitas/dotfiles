@@ -375,3 +375,12 @@ function s3put() {
 		--header "Content-MD5: $contentmd5" \
 		http://s3.amazonaws.com/$2/$1
 }
+
+# Vim Utils
+# addVimPlugin git://github.com/vim-scripts/L9.git L9
+function addVim() {
+  cd ~/bin/dotfiles
+  git submodule add $1 vim/bundle/$2
+  cd -
+}
+
