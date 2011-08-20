@@ -8,8 +8,10 @@ alias ss='/usr/bin/python ~/bin/webkit2png/webkit2png --width=1024 --thumb --sca
 
 # Utility
 alias reload='source ~/bin/dotfiles/bash/aliases'
-alias ea='mate -w ~/bin/dotfiles/bash/aliases && reload' # Edit aliases
-alias ee="mate ~/bin/dotfiles/bash/env"
+#alias ea='mate -w ~/bin/dotfiles/bash/aliases && reload' # Edit aliases
+#alias ee="mate ~/bin/dotfiles/bash/env"
+alias ea='mvim -f ~/bin/dotfiles/bash/aliases && reload' # Edit aliases
+alias ee="mvim ~/bin/dotfiles/bash/env"
 
 # Common -- Some are from Damian Conway
 alias a='ls -A' # -A all except literal . ..
