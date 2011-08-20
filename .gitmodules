@@ -1,36 +1,3 @@
 [submodule "vim/bundle/vim-colors-solarized"]
 	path = vim/bundle/vim-colors-solarized
 	url = git://github.com/altercation/vim-colors-solarized.git
-[submodule "vim/bundle/snipmate"]
-	path = vim/bundle/snipmate
-	url = git://github.com/msanders/snipmate.vim.git
-[submodule "vim/bundle/vim-rails"]
-	path = vim/bundle/vim-rails
-	url = git://github.com/tpope/vim-rails.git
-[submodule "vim/bundle/vim-fuzzyfinder"]
-	path = vim/bundle/vim-fuzzyfinder
-	url = git://github.com/clones/vim-fuzzyfinder.git
-[submodule "vim/bundle/L9"]
-	path = vim/bundle/L9
-	url = git://github.com/vim-scripts/L9.git
-[submodule "vim/bundle/vim-haml"]
-	path = vim/bundle/vim-haml
-	url = git://github.com/tpope/vim-haml.git
-[submodule "vim/bundle/vim-coffee-script"]
-	path = vim/bundle/vim-coffee-script
-	url = git://github.com/kchmck/vim-coffee-script.git
-[submodule "vim/bundle/rvm.vim"]
-	path = vim/bundle/rvm.vim
-	url = git://github.com/csexton/rvm.vim.git
-[submodule "vim/bundle/ack.vim"]
-	path = vim/bundle/ack.vim
-	url = git://github.com/mileszs/ack.vim.git
-[submodule "vim/bundle/vim-rooter"]
-	path = vim/bundle/vim-rooter
-	url = git://github.com/airblade/vim-rooter.git
-[submodule "vim/bundle/vim-fugitive"]
-	path = vim/bundle/vim-fugitive
-	url = git://github.com/tpope/vim-fugitive.git
-[submodule "vim/bundle/markdown-preview.vim"]
-	path = vim/bundle/markdown-preview.vim
-	url = git://github.com/mkitt/markdown-preview.vim.git
