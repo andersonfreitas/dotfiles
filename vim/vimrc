@@ -3,6 +3,7 @@
 
 set nocompatible                  " Must come first because it changes other options.
 
+source ~/.vim/bundle/vim-pathogen/autoload/pathogen.vim
 call pathogen#infect()
 
 syntax enable                     " Turn on syntax highlighting.
