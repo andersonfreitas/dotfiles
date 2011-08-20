@@ -25,6 +25,9 @@
 [submodule "vim/bundle/ack.vim"]
 	path = vim/bundle/ack.vim
 	url = git://github.com/mileszs/ack.vim.git
+[submodule "vim/bundle/vim-rooter"]
+	path = vim/bundle/vim-rooter
+	url = git://github.com/airblade/vim-rooter.git
 [submodule "vim/bundle/vim-fugitive"]
 	path = vim/bundle/vim-fugitive
 	url = git://github.com/tpope/vim-fugitive.git
