@@ -328,6 +328,8 @@ snippet vpo
 	validates_presence_of :${1:attribute}
 snippet vu
 	validates_uniqueness_of :${1:attribute}
+snippet v
+	validates :${1:attribute}, :presence => ${2:true}, :uniqueness => ${3:true}
 snippet wants
 	wants.${1:js|xml|html} { ${2} }
 snippet wc
