@@ -6,7 +6,7 @@
 	branch = auto
 	ui = auto
 [core]
-	editor = vim -f 
+	editor = mvim -f 
 	quotepath = false
 [diff]
 	tool = araxis
