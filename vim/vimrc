@@ -81,6 +81,8 @@ autocmd FileType ruby setlocal nofoldopen
 
 "autocmd VimEnter * NERDTree
 "autocmd BufEnter * NERDTreeMirror
+let NERDTreeMinimalUI=1
+let NERDTreeDirArrows=1
 
 " Forcing myself to stop using arrow keys
 map <up> <nop>
