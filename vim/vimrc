@@ -79,4 +79,12 @@ set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{exists('*CapsLockStatusline')?CapsLo
 "autocmd VimEnter * NERDTree
 "autocmd BufEnter * NERDTreeMirror
 
+" Forcing myself to stop using arrow keys
+map <up> <nop>
+map <down> <nop>
+map <left> <nop>
+map <right> <nop>
+
+nnoremap j gj
+nnoremap k gk
 
