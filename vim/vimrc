@@ -72,7 +72,8 @@ set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{exists('*CapsLockStatusline')?CapsLo
 "vnoremap : ;
 
 " Automatic fold settings for specific files. Uncomment to use.
-" autocmd FileType ruby setlocal foldmethod=syntax
+autocmd FileType ruby setlocal foldmethod=syntax
+autocmd FileType ruby setlocal nofoldopen
 " autocmd FileType css  setlocal foldmethod=indent shiftwidth=2 tabstop=2
 "
 
