@@ -4,8 +4,11 @@
 set nocompatible                  " Must come first because it changes other options.
 
 source ~/.vim/bundle/vim-pathogen/autoload/pathogen.vim
+
 call pathogen#infect()
 call pathogen#helptags()
+
+"set runtimepath-=~/.vim/bundle/vim-fuzzyfinder
 
 syntax enable                     " Turn on syntax highlighting.
 filetype plugin indent on         " Turn on file type detection.
