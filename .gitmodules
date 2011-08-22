@@ -52,3 +52,6 @@
 [submodule "vim/bundle/vim-railscasts-theme"]
 	path = vim/bundle/vim-railscasts-theme
 	url = git://github.com/jpo/vim-railscasts-theme.git
+[submodule "vim/bundle/taskpaper.vim"]
+	path = vim/bundle/taskpaper.vim
+	url = git://github.com/davidoc/taskpaper.vim.git
