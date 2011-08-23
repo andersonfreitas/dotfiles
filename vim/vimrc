@@ -90,6 +90,10 @@ autocmd FileType ruby setlocal foldlevelstart=99
 let NERDTreeMinimalUI=1
 let NERDTreeDirArrows=1
 
+" Command-/ to toggle comments
+map <D-/> <plug>NERDCommenterToggle<CR>
+imap <D-/> <Esc><plug>NERDCommenterToggle<CR>i
+
 " Forcing myself to stop using arrow keys
 map <up> <nop>
 map <down> <nop>
