@@ -67,6 +67,8 @@ autocmd FileType css  setlocal foldmethod=indent shiftwidth=2 tabstop=2
 autocmd VimEnter * NERDTree
 
 " Showing only the necessary in NERDTree
+" \t to open NERDTree
+map <Leader>n :NERDTreeToggle<CR>
 let NERDTreeMinimalUI=1
 let NERDTreeDirArrows=1
 

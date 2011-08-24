@@ -25,5 +25,3 @@ vmap <D-[> <gv
 " Command-Shift-F for Ack
 map <D-F> :Ack<space>
 
-" \t to open NERDTree
-map <Leader>n :NERDTreeToggle<CR>
