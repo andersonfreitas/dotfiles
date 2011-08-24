@@ -12,7 +12,8 @@ colorscheme railscasts
 
 " Using Command+t for fuzzyfinder
 macmenu &File.New\ Tab key=<D-T>
-map <D-t> :call fuf#givenfile#launch('', 0, '> ', split(glob('./**/*'), "\n"))<CR>
+"map <D-t> :call fuf#givenfile#launch('', 0, '> ', split(glob('./**/*'), "\n"))<CR>
+map <D-t> :CommandT<CR>
 
 " Command-Return for fullscreen
 macmenu Window.Toggle\ Full\ Screen\ Mode key=<D-CR>
