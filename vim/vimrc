@@ -71,11 +71,12 @@ autocmd BufRead,BufNewFile Guardfile set filetype=ruby
 " Always open a NERDTree
 autocmd VimEnter * NERDTree
 
-" Showing only the necessary in NERDTree
 " \t to open NERDTree
 map <Leader>n :NERDTreeToggle<CR>
+"let NERDTreeShowBookmarks=1
 let NERDTreeMinimalUI=1
 let NERDTreeDirArrows=1
+let NERDTreeChDirMode=2
 
 " Command-/ to toggle comments
 map <D-/> <plug>NERDCommenterToggle<CR>
