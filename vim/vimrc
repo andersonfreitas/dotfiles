@@ -91,6 +91,9 @@ map <right> <nop>
 nnoremap j gj
 nnoremap k gk
 
+" Switch between the last two files
+nnoremap <leader><leader> <c-^>
+
 " Easy window navigation
 map <C-h> <C-w>h
 map <C-j> <C-w>j
@@ -106,3 +109,4 @@ nnoremap <Space> za
 " Command-T configs
 let g:CommandTMaxHeight=10
 "let g:CommandTMatchWindowReverse=1
+
