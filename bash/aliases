@@ -216,9 +216,10 @@ alias ntop=iftop
 alias wtop=iftop
 alias tcptrack=iftop
 
+# Utility for testing upload throughtput
 function ssh_network_throughtput() {
 	host=$1
-	yes | pv | ssh $host “cat > /dev/null”	
+	yes | pv | ssh $host "cat > /dev/null"	
 }
 
 alias count_java='wc -l `find . -name \*.java -print`'
@@ -238,7 +239,7 @@ alias rebuild-open-with='/System/Library/Frameworks/CoreServices.framework/Frame
 
 # 23) THROTTLE BANDWIDTH WITH CSTREAM
 # 
-# tar -cj /backup | cstream -t 777k | ssh host ‘tar -xj -C /backup’
+# tar -cj /backup | cstream -t 777k | ssh host 'tar -xj -C /backup'
 # 
 # this bzips a folder and transfers it over the network to “host” at 777k bit/s.
 # cstream can do a lot more, have a look http://www.cons.org/cracauer/cstream.html#usage
