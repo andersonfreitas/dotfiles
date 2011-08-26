@@ -68,6 +68,9 @@ autocmd FileType css  setlocal foldmethod=indent shiftwidth=2 tabstop=2 foldleve
 " Opening Guardfile as a Ruby file
 autocmd BufRead,BufNewFile Guardfile set filetype=ruby
 
+" Making the vim-css-color work with SCSS files
+autocmd BufRead,BufNewFile *.scss set filetype=css
+
 " Always open a NERDTree
 autocmd VimEnter * NERDTree
 
