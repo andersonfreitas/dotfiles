@@ -99,6 +99,14 @@ map <right> <nop>
 nnoremap j gj
 nnoremap k gk
 
+" Bubble single lines
+nmap <C-Up> ddkP
+nmap <C-Down> ddp
+
+" Bubble multiple lines
+vmap <C-Up> xkP`[V`]
+vmap <C-Down> xp`[V`]
+
 " Switch between the last two files
 nnoremap <leader><leader> <c-^>
 
