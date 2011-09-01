@@ -81,6 +81,7 @@ autocmd VimEnter * wincmd p
 
 " \t to open NERDTree
 map <Leader>n :NERDTreeToggle<CR>
+map <Leader>N :NERDTreeFind<CR>
 "let NERDTreeShowBookmarks=1
 let NERDTreeMinimalUI=1
 let NERDTreeDirArrows=1
