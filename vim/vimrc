@@ -77,6 +77,7 @@ autocmd BufRead,BufNewFile *.scss set filetype=css
 
 " Always open a NERDTree
 autocmd VimEnter * NERDTree
+autocmd VimEnter * wincmd p
 
 " \t to open NERDTree
 map <Leader>n :NERDTreeToggle<CR>
