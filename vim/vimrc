@@ -122,6 +122,9 @@ cmap w!! w !sudo tee % >/dev/null
 " Easier folding with <Space> 
 nnoremap <Space> za 
 
+" Autocomplete with ctrl+space
+imap <C-Space> <C-p>
+
 " Command-T configs
 let g:CommandTMaxHeight=10
 "let g:CommandTMatchWindowReverse=1
