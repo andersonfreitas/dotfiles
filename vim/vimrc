@@ -7,6 +7,7 @@ call pathogen#infect()
 call pathogen#helptags()
 
 "set runtimepath-=~/.vim/bundle/vim-fuzzyfinder
+set runtimepath-=~/.vim/bundle/bufexplorer
 
 syntax enable                     " Turn on syntax highlighting.
 filetype plugin indent on         " Turn on file type detection.
