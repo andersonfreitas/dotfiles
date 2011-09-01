@@ -131,3 +131,7 @@ let g:CommandTMaxHeight=10
 "let g:CommandTMatchWindowReverse=1
 
 set listchars=tab:▸\ ,eol:¬
+
+" Automatically source vimrc as it's edited
+autocmd bufwritepost .vimrc source $MYVIMRC
+autocmd bufwritepost vimrc source $MYVIMRC
