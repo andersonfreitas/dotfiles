@@ -130,3 +130,4 @@ imap <C-Space> <C-p>
 let g:CommandTMaxHeight=10
 "let g:CommandTMatchWindowReverse=1
 
+set listchars=tab:▸\ ,eol:¬
