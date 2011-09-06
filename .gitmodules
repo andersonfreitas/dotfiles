@@ -73,3 +73,6 @@
 [submodule "vim/bundle/vim-indent-object"]
 	path = vim/bundle/vim-indent-object
 	url = git://github.com/michaeljsmith/vim-indent-object.git
+[submodule "vim/bundle/greplace.vim"]
+	path = vim/bundle/greplace.vim
+	url = git://github.com/vim-scripts/greplace.vim.git
