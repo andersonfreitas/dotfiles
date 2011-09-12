@@ -111,6 +111,9 @@ function gdiff() {
 	find . -name "*$**" -exec git diff HEAD -- {} +; 
 }
 
+# Undo a `git push`
+alias undopush="git push -f origin HEAD^:master"
+
 # from http://github.com/revans/bash-it/blob/master/plugins/git.plugins.bash
 function git_remove_missing_files() {
   git ls-files -d -z | xargs -0 git update-index --remove
