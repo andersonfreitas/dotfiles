@@ -389,3 +389,24 @@ function addVim() {
   cd -
 }
 
+# add-ssh-key user@host.com
+function add-ssh-key() {
+  cat ~/.ssh/id_rsa.pub | ssh $1 "cat >> .ssh/authorized_keys"
+}
+
+# from https://github.com/mathiasbynens/dotfiles/blob/master/.functions
+# Test if HTTP compression (RFC 2616 + SDCH) is enabled for a given URL.
+# Send a fake UA string for sites that sniff it instead of using the Accept-Encoding header. (Looking at you, ajax.googleapis.com!)
+httpcompression() {
+  encoding="$(curl -LIs -H 'User-Agent: Mozilla/5 Gecko' -H 'Accept-Encoding: gzip,deflate,compress,sdch' "$1" | grep '^Content-Encoding:')" && echo "$1 is encoded using ${encoding#* }" || echo "$1 is not using any encoding"
+}
+
+# All the dig info
+digga() {
+  dig +nocmd "$1" any +multiline +noall +answer
+}
+
+# View HTTP traffic
+alias sniff="sudo ngrep -d 'en1' -t '^(GET|POST) ' 'tcp and port 80'"
+alias httpdump="sudo tcpdump -i en1 -n -s 0 -w - | grep -a --color=never -o -E \"Host\: .*|GET \/.*\""
+
