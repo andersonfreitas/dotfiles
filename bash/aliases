@@ -385,7 +385,7 @@ function s3put() {
 function addVim() {
   cd ~/bin/dotfiles
   git submodule add $1 vim/bundle/$2
-  git submodule init && git submodule update
+  #git submodule init && git submodule update
   cd -
 }
 
