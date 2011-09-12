@@ -1,4 +1,4 @@
 . ~/bin/dotfiles/bash/env
 . ~/bin/dotfiles/bash/config
 . ~/bin/dotfiles/bash/aliases
-. ~/bin/dotfiles/git-completion.sh
+. ~/bin/dotfiles/git-completion.bash
