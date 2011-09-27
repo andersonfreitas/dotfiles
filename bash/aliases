@@ -102,10 +102,12 @@ alias gl='git pull'
 alias gnp="git-notpushed"
 alias gp='git push'
 alias gs='git status'
-alias gt='git status'
 alias gw='git whatchanged'
 
 alias gppom='git pull origin master && git push origin master'
+
+# git pull push origin current
+alias gppoc="BRANCH=`git branch --no-color 2>/dev/null | grep '*' | awk '{ print $2 }'` git pull origin $BRANCH && git push origin $BRANCH"
 
 function gdiff() {
 	find . -name "*$**" -exec git diff HEAD -- {} +; 
