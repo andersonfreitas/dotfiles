@@ -37,6 +37,9 @@ set cursorline                    " underline the current line
 set incsearch                     " Highlight matches as you type.
 set hlsearch                      " Highlight matches.
 
+" Clearing current highligh
+nmap <silent> <leader>/ :nohlsearch<CR>
+
 set wrap                          " Turn on line wrapping.
 set scrolloff=3                   " Show 3 lines of context around the cursor.
 
