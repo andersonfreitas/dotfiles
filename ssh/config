@@ -2,3 +2,11 @@
 Host staging
   HostName staging.medscale.com.br
   User root
+
+Host *
+  Compression yes
+  CompressionLevel 7
+  #ControlMaster auto
+  #UserKnownHostsFile /dev/null
+  #StrictHostKeyChecking no
+
