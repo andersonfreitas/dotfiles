@@ -100,13 +100,13 @@ map <D-/> <plug>NERDCommenterToggle<CR>
 imap <D-/> <Esc><plug>NERDCommenterToggle<CR>i
 
 " Forcing myself to stop using arrow keys
-map <up> <nop>
-map <down> <nop>
-map <left> <nop>
-map <right> <nop>
+"map <up> <nop>
+"map <down> <nop>
+"map <left> <nop>
+"map <right> <nop>
 
-nnoremap j gj
-nnoremap k gk
+"nnoremap j gj
+"nnoremap k gk
 
 " Bubble single lines
 nmap <C-Up> ddkP
