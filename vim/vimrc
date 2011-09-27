@@ -68,9 +68,7 @@ set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{exists('*CapsLockStatusline')?CapsLo
 "set clipboard=unnamed
 
 " Automatic fold settings for specific files. Uncomment to use.
-autocmd FileType ruby setlocal foldmethod=syntax
-autocmd FileType ruby setlocal nofoldenable
-autocmd FileType ruby setlocal foldlevelstart=99
+autocmd FileType ruby setlocal foldmethod=syntax foldlevelstart=99 nofoldenable
 autocmd FileType css  setlocal foldmethod=indent shiftwidth=2 tabstop=2 foldlevelstart=99 nofoldenable
 
 " Using tabs in haml files
@@ -143,8 +141,7 @@ let g:CommandTMaxHeight=10
 set listchars=tab:▸\ ,eol:¬
 
 " Automatically source vimrc as it's edited
-autocmd bufwritepost .vimrc source $MYVIMRC
-autocmd bufwritepost vimrc source $MYVIMRC
+autocmd bufwritepost {.vimrc,vimrc} source $MYVIMRC
 
 autocmd FocusGained * call s:UpdateNERDTree()
 
