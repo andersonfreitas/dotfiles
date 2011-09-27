@@ -183,3 +183,11 @@ function s:UpdateNERDTree(...)
     CommandTFlush
   endif
 endfunction
+
+" ConqueTerm
+let g:ConqueTerm_Color          = 1
+let g:ConqueTerm_TERM           = 'xterm'
+let g:ConqueTerm_Syntax         = 'conque'
+let g:ConqueTerm_ReadUnfocused  = 1
+let g:ConqueTerm_CWInsert       = 1
+
