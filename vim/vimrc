@@ -60,6 +60,7 @@ set shiftwidth=2                 " And again, related.
 set expandtab                    " Use spaces instead of tabs
 
 set laststatus=2                  " Show the status line all the time
+
 " Useful status information at bottom of screen
 set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{exists('*CapsLockStatusline')?CapsLockStatusline():''}%=%-16(\ %l,%c-%v\ %)%P
 
@@ -126,8 +127,8 @@ map <C-l> <C-w>l
 " http://nvie.com/posts/how-i-boosted-my-vim/
 cmap w!! w !sudo tee % >/dev/null
 
-" Easier folding with <Space> 
-nnoremap <Space> za 
+" Easier folding with <Space>
+nnoremap <Space> za
 
 " Autocomplete with ctrl+space
 imap <C-Space> <C-p>
@@ -144,7 +145,7 @@ autocmd bufwritepost vimrc source $MYVIMRC
 
 autocmd FocusGained * call s:UpdateNERDTree()
 
-" Automatically close vim if NERDtree is the last buffer 
+" Automatically close vim if NERDtree is the last buffer
 autocmd WinEnter * call s:CloseIfOnlyNerdTreeLeft()
 
 " Close all open buffers on entering a window if the only
