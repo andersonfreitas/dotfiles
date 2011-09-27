@@ -25,7 +25,7 @@
   quotepath = false
   whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
 [diff]
-	tool = araxis
+  tool = araxis
 [merge]
 	tool = araxis
 [alias]
@@ -34,4 +34,10 @@
 	oneline = log --pretty=oneline
 	co = checkout
 	br = branch
-	la = log --pretty='format:%ad %h (%an): %s' --date=short --graph --all
+  la = log --pretty='format:%ad %h (%an): %s' --date=short --graph --all
+  st = status -sb
+  unstage = reset HEAD
+[push]
+  default = current
+[help]
+  autocorrect = 1
