@@ -75,6 +75,9 @@ autocmd BufRead,BufNewFile Guardfile set filetype=ruby
 " Making the vim-css-color work with SCSS files
 autocmd BufRead,BufNewFile *.scss set filetype=css
 
+" Avoiding trailing white-space in Ruby files
+autocmd BufWritePre {*.rb,*.js,*.coffee,*.scss,*.haml} :%s/\s\+$//e
+
 " Always open a NERDTree
 autocmd VimEnter * NERDTree
 autocmd VimEnter * wincmd p
