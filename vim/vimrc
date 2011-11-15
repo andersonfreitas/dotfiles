@@ -191,3 +191,6 @@ let g:ConqueTerm_Syntax         = 'conque'
 let g:ConqueTerm_ReadUnfocused  = 1
 let g:ConqueTerm_CWInsert       = 1
 
+nmap cp :let @" = expand("%:p")
+
+
