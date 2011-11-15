@@ -416,3 +416,10 @@ alias httpdump="sudo tcpdump -i en1 -n -s 0 -w - | grep -a --color=never -o -E \
 function wget-site() {
   wget -r -l0 -np -k -e robots=off $1
 }
+
+# ERB to HAML
+# gem install hpricot ruby_parser
+function erb2haml() {
+  for i in `find $1 -name '*.erb'` ; do html2haml -e $i ${i%erb}haml ; rm $i ; done
+}
+
