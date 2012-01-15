@@ -88,3 +88,12 @@
 [submodule "vim/bundle/vimroom"]
 	path = vim/bundle/vimroom
 	url = git://github.com/mikewest/vimroom.git
+[submodule "vim/bundle/vim-textobj-rubyblock"]
+	path = vim/bundle/vim-textobj-rubyblock
+	url = git://github.com/nelstrom/vim-textobj-rubyblock.git
+[submodule "vim/bundle/vim-textobj-user"]
+	path = vim/bundle/vim-textobj-user
+	url = git://github.com/kana/vim-textobj-user.git
+[submodule "vim/bundle/vim-pasta"]
+	path = vim/bundle/vim-pasta
+	url = git://github.com/sickill/vim-pasta.git
