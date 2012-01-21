@@ -109,3 +109,6 @@
 [submodule "vim/bundle/vim-indent-guides"]
 	path = vim/bundle/vim-indent-guides
 	url = git://github.com/nathanaelkane/vim-indent-guides.git
+[submodule "vim/bundle/vim-sass-status"]
+	path = vim/bundle/vim-sass-status
+	url = git://github.com/aaronjensen/vim-sass-status.git
