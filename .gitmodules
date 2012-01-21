@@ -100,3 +100,6 @@
 [submodule "vim/bundle/ctrlp.vim"]
 	path = vim/bundle/ctrlp.vim
 	url = git://github.com/kien/ctrlp.vim.git
+[submodule "vim/bundle/csapprox"]
+	path = vim/bundle/csapprox
+	url = git://github.com/godlygeek/csapprox.git
