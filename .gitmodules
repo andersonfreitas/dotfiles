@@ -103,3 +103,6 @@
 [submodule "vim/bundle/csapprox"]
 	path = vim/bundle/csapprox
 	url = git://github.com/godlygeek/csapprox.git
+[submodule "vim/bundle/vim-yankring"]
+	path = vim/bundle/vim-yankring
+	url = git://github.com/chrismetcalf/vim-yankring.git
