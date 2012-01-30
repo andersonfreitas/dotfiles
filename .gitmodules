@@ -112,3 +112,6 @@
 [submodule "vim/bundle/vim-sass-status"]
 	path = vim/bundle/vim-sass-status
 	url = git://github.com/aaronjensen/vim-sass-status.git
+[submodule "vim/bundle/xmledit"]
+	path = vim/bundle/xmledit
+	url = git://github.com/sukima/xmledit.git
