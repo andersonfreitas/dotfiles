@@ -251,41 +251,6 @@ alias rebuild-open-with='/System/Library/Frameworks/CoreServices.framework/Frame
 # for example:
 # echo w00t, i’m 733+ | cstream -b1 -t2
 
-
-## Utility to create bookmarks
-function m {
-	cat ~/.sdirs | grep -v "export DIR_$1=" > ~/.sdirs1
-	mv ~/.sdirs1 ~/.sdirs
-	echo "export DIR_$1=$PWD" >> ~/.sdirs
-}
-
-# enable custom tab completion
-shopt -s progcomp
-
-# jump to bookmark
-function go {
-	source ~/.sdirs
-	cd $(eval $(echo echo $(echo \$DIR_$1)))
-}
-
-# list bookmarks without dirname
-function _l {
-	source ~/.sdirs
-	env | grep "^DIR_" | cut -c5- | grep "^.*=" | cut -f1 -d "="
-}
-
-# completion command for g
-function _gocomp {
-	local curw
-	COMPREPLY=()
-	curw=${COMP_WORDS[COMP_CWORD]}
-	COMPREPLY=($(compgen -W '`_l`' -- $curw))
-	return 0
-}
-# bind completion command for go to _gcomp
-complete -F _gocomp go
-# Usage: go [TAB]
-
 alias noidle="pmset noidle"
 
 ###
