@@ -1,1 +1,4 @@
 --type-add=ruby=.haml
+--type-add=html=.html.haml
+--type-add=css=.scss,.sass
+--type-add=js=.coffee,.js.haml,.js.erb
