@@ -7,8 +7,6 @@ set lines=38 columns=130          " Window dimensions.
 set guioptions-=r                 " Don't show right scrollbar
 set go-=L                         " Hide the left scrollbar
 
-"colorscheme solarized
-colorscheme railscasts
 
 " Using Command+t for fuzzyfinder
 macmenu &File.New\ Tab key=<D-T>

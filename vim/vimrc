@@ -138,6 +138,16 @@ vmap <C-Down> xp`[V`]
 " Switch between the last two files
 nnoremap <leader><leader> <c-^>
 
+" coloscheme config
+colorscheme railscasts
+
+if has("gui_running")
+  " Solarized Colorscheme Config
+  let g:solarized_diffmode="high"
+  let g:solarized_hitrail=1
+  colorscheme solarized
+endif
+
 " Easy window navigation
 map <C-h> <C-w>h
 map <C-j> <C-w>j
