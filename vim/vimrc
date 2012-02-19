@@ -103,8 +103,8 @@ autocmd BufRead,BufNewFile *.scss set filetype=css
 autocmd BufWritePre {*.rb,*.js,*.coffee,*.scss,*.haml} :%s/\s\+$//e
 
 " Always open a NERDTree
-autocmd VimEnter * NERDTree
-autocmd VimEnter * wincmd p
+autocmd VimEnter * if argc() == 0 | NERDTree | endif
+autocmd VimEnter * if argc() == 0 | wincmd p | endif
 
 " \t to open NERDTree
 map <Leader>n :NERDTreeToggle<CR>
