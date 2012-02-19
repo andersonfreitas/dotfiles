@@ -48,7 +48,8 @@ set hlsearch                      " Highlight matches.
 nnoremap <esc> :noh<return><esc>
 
 set wrap                          " Turn on line wrapping.
-set scrolloff=3                   " Show 3 lines of context around the cursor.
+set scroll=10                     " Scroll N line with CTRL-U and CTRL-D
+set scrolloff=0                   " Show N lines of context around the cursor.
 
 set title                         " Set the terminal's title
 
