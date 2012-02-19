@@ -70,7 +70,18 @@ set expandtab                    " Use spaces instead of tabs
 set laststatus=2                  " Show the status line all the time
 
 " Useful status information at bottom of screen
-set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{exists('*CapsLockStatusline')?CapsLockStatusline():''}%=%-16(\ %l,%c-%v\ %)%P
+set statusline=
+set statusline +=[%n]                              "buffer number
+set statusline +=[%{strlen(&fenc)?&fenc:&enc}]     "file encoding
+set statusline +=%y                                "file type
+set statusline +=\ %<%f                            "file path (relative to current directory)
+set statusline +=%m                                "modified flag
+set statusline +=%=                                "right align
+set statusline +=%{fugitive#statusline()}          "current git branch
+set statusline +=%5l                               "current line
+set statusline +=/%L                               "total lines
+set statusline +=%4v\                              "virtual column number
+set statusline +=0x%04B\                           "character under cursor
 
 " Using the system clipboard as the default register
 "set clipboard=unnamed
