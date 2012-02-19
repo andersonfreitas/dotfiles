@@ -1,6 +1,9 @@
 export CLICOLOR=1
 #export EDITOR="mate -w"
-export EDITOR="/Users/andersonfreitas/bin/vim"
+#export EDITOR="vim"
+export EDITOR="mvim -f"
+#export EDITOR='mvim -f -c "au VimLeave * \!open -a iTerm"'
+
 export PATH=~/bin:~/bin/araxis-utils:/opt/local/bin:/opt/local/sbin:/usr/local/mysql/bin:/usr/local/git/bin:/Developer/usr/bin:$PATH
 export PATH=$PATH
 export HISTSIZE=10000
