@@ -6,8 +6,14 @@ source ~/.vim/bundle/vim-pathogen/autoload/pathogen.vim
 call pathogen#infect()
 call pathogen#helptags()
 
-"set runtimepath-=~/.vim/bundle/vim-fuzzyfinder
+" Disable ununsed bundles
 set runtimepath-=~/.vim/bundle/bufexplorer
+set runtimepath-=~/.vim/bundle/ctrlp.vim
+set runtimepath-=~/.vim/bundle/L9
+set runtimepath-=~/.vim/bundle/vim-fuzzyfinder
+set runtimepath-=~/.vim/bundle/vim-yankring
+set runtimepath-=~/.vim/bundle/xmledit
+set runtimepath-=~/.vim/bundle/vimroom
 
 syntax enable                     " Turn on syntax highlighting.
 filetype plugin indent on         " Turn on file type detection.
