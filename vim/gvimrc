@@ -8,9 +8,8 @@ set guioptions-=r                 " Don't show right scrollbar
 set go-=L                         " Hide the left scrollbar
 
 
-" Using Command+t for fuzzyfinder
+" Using Command+t for CommandT
 macmenu &File.New\ Tab key=<D-T>
-"map <D-t> :call fuf#givenfile#launch('', 0, '> ', split(glob('./**/*'), "\n"))<CR>
 map <D-t> :CommandT<CR>
 
 " Command-Return for fullscreen
