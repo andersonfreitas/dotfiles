@@ -231,6 +231,14 @@ nmap cp :let @" = expand("%:p")
 
 "map <leader>f :CommandTFlush<cr>\|:CommandT<cr>
 "map <leader>F :CommandTFlush<cr>\|:CommandT %%<cr>
+" Git fugitive
+nmap <leader>gs :Gstatus<CR>
+nmap <leader>gc :Gcommit<CR>
+nmap <leader>gp :Git push<CR>
+nmap <leader>gd :Gdiff<CR>
+map <leader>dp :diffput<CR>
+map <leader>dg :diffget<CR>
+
 " Auto close XML tags
 autocmd FileType xml imap <buffer> </ </<C-X><C-O>
 autocmd FileType xml compiler xmllint
