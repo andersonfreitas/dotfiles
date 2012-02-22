@@ -121,3 +121,9 @@
 [submodule "vim/bundle/closetag.vim"]
 	path = vim/bundle/closetag.vim
 	url = git://github.com/docunext/closetag.vim.git
+[submodule "vim/bundle/vim-rvm"]
+	path = vim/bundle/vim-rvm
+	url = git://github.com/tpope/vim-rvm.git
+[submodule "vim/bundle/errormarker.vim"]
+	path = vim/bundle/errormarker.vim
+	url = git://github.com/vim-scripts/errormarker.vim.git
