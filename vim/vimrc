@@ -1,4 +1,3 @@
-
 set nocompatible                  " Must come first because it changes other options.
 
 source ~/.vim/bundle/vim-pathogen/autoload/pathogen.vim
@@ -111,7 +110,7 @@ autocmd VimEnter * if argc() == 0 | wincmd p | endif
 " \t to open NERDTree
 map <Leader>n :NERDTreeToggle<CR>
 map <Leader>N :NERDTreeFind<CR>
-"let NERDTreeShowBookmarks=1
+let NERDTreeShowBookmarks=1
 let NERDTreeMinimalUI=1
 let NERDTreeDirArrows=1
 let NERDTreeChDirMode=2
@@ -172,7 +171,7 @@ let g:CommandTMaxHeight=10
 set listchars=tab:▸\ ,eol:¬
 
 " Automatically source vimrc as it's edited
-autocmd bufwritepost {.vimrc,vimrc} source $MYVIMRC
+"autocmd bufwritepost {.vimrc,vimrc} source $MYVIMRC
 
 autocmd FocusGained * call s:UpdateNERDTree()
 
@@ -216,7 +215,7 @@ function s:UpdateNERDTree(...)
 endfunction
 
 " ConqueTerm
-let g:ConqueTerm_Color          = 1
+"let g:ConqueTerm_Color          = 1
 let g:ConqueTerm_TERM           = 'xterm'
 let g:ConqueTerm_Syntax         = 'conque'
 let g:ConqueTerm_ReadUnfocused  = 1
@@ -227,10 +226,15 @@ nmap cp :let @" = expand("%:p")
 " http://mislav.uniqpath.com/2011/12/vim-revisited/
 " double percentage sign in command mode is expanded
 " to directory of current file - http://vimcasts.org/e/14
-"cnoremap %% <C-R>=expand('%:h').'/'<cr>
+cnoremap %% <C-R>=expand('%:h').'/'<cr>
 
 "map <leader>f :CommandTFlush<cr>\|:CommandT<cr>
 "map <leader>F :CommandTFlush<cr>\|:CommandT %%<cr>
+
+"the sequence `\d` will delete the current buffer without killing the window
+nmap <leader>d :bprevious<CR>:bdelete #<CR>
+"nmap <leader>d :bprevious<CR>:bdelete<CR>
+
 " Git fugitive
 nmap <leader>gs :Gstatus<CR>
 nmap <leader>gc :Gcommit<CR>
