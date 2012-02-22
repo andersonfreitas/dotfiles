@@ -8,6 +8,7 @@ call pathogen#helptags()
 
 " Disable ununsed bundles
 set runtimepath-=~/.vim/bundle/bufexplorer
+set runtimepath-=~/.vim/bundle/closetag.vim
 set runtimepath-=~/.vim/bundle/ctrlp.vim
 set runtimepath-=~/.vim/bundle/L9
 set runtimepath-=~/.vim/bundle/vim-fuzzyfinder
@@ -229,3 +230,7 @@ nmap cp :let @" = expand("%:p")
 
 "map <leader>f :CommandTFlush<cr>\|:CommandT<cr>
 "map <leader>F :CommandTFlush<cr>\|:CommandT %%<cr>
+" Auto close XML tags
+autocmd FileType xml imap <buffer> </ </<C-X><C-O>
+autocmd FileType xml compiler xmllint
+
