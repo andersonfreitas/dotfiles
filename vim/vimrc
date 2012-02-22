@@ -252,6 +252,9 @@ map <D-r> :make<CR>
 imap <D-r> <esc>:make<CR>
 autocmd FileType ruby map <buffer> <D-r> :w ! ruby<cr>
 autocmd FileType ruby imap <buffer> <D-r> <esc>:w ! ruby<cr>
+
+iabbrev ddate <C-r>=strftime("%F")<CR>
+
 " \rs to remove trailings spaces
 map <leader>rs :%s/\s\+$//e<cr>
 
