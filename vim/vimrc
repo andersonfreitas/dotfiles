@@ -239,6 +239,15 @@ nmap <leader>gd :Gdiff<CR>
 map <leader>dp :diffput<CR>
 map <leader>dg :diffget<CR>
 
+" Custom makeprg based on file format
+autocmd FileType ruby setlocal makeprg=ruby\ %   " ruby
+autocmd FileType sh   setlocal makeprg=%         " shell
+
+" cmd+R to run the file
+map <D-r> :make<CR>
+imap <D-r> <esc>:make<CR>
+autocmd FileType ruby map <buffer> <D-r> :w ! ruby<cr>
+autocmd FileType ruby imap <buffer> <D-r> <esc>:w ! ruby<cr>
 " Auto close XML tags
 autocmd FileType xml imap <buffer> </ </<C-X><C-O>
 autocmd FileType xml compiler xmllint
