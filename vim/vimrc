@@ -79,6 +79,7 @@ set statusline +=\ %<%f                            "file path (relative to curre
 set statusline +=%m                                "modified flag
 set statusline +=%=                                "right align
 set statusline +=%{fugitive#statusline()}          "current git branch
+set statusline +=%{rvm#statusline()}               "rvm info
 set statusline +=%5l                               "current line
 set statusline +=/%L                               "total lines
 set statusline +=%4v\                              "virtual column number
