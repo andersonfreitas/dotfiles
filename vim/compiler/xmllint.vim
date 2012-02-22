@@ -16,9 +16,7 @@ endif
 let s:cpo_save = &cpo
 set cpo-=C
 
-"CompilerSet makeprg=xmllint\ --valid\ --noout\ --schema\ \"lib/odm/xsd/medscale-odm.xsd\"\ %
-"CompilerSet makeprg=xmllint\ --xinclude\ --noout\ --postvalid\ . shellescape(expand("%:p"))
-let makeprg="xmllint --xinclude --noout --postvalid " . shellescape(expand("%:p"))
+CompilerSet makeprg=xmllint\ --valid\ --noout\ --schema\ \"lib/odm/xsd/medscale-odm.xsd\"\ %
 
 " Doesn't work
 "CompilerSet errorformat=%E%f:%l:\ error:\ %m,
