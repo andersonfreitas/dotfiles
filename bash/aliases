@@ -418,5 +418,9 @@ function hablar() {
   afplay ~/Desktop/español/"$*.mp3"
 }
 
+alias bclc='echo "10 i 2 o $(date +"%H%M"|cut -b 1,2,3,4 --output-delimiter=" ") f"|dc|tac|xargs printf "%04d\n"|tr "01" ".*"'
+
+#spec_end_to_end='`(time -p script/test) 2>&1 1>/dev/null | grep real | cut -d " " -f 2`'
+
 # Using go as autojump
 alias go=j
