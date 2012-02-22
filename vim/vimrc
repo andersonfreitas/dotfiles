@@ -248,6 +248,9 @@ map <D-r> :make<CR>
 imap <D-r> <esc>:make<CR>
 autocmd FileType ruby map <buffer> <D-r> :w ! ruby<cr>
 autocmd FileType ruby imap <buffer> <D-r> <esc>:w ! ruby<cr>
+" \rs to remove trailings spaces
+map <leader>rs :%s/\s\+$//e<cr>
+
 " Utility to show the highlight group under the cursor.
 nmap <C-S-P> :call <SID>SynStack()<CR>
 function! <SID>SynStack()
