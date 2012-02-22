@@ -36,6 +36,7 @@ PROMPT='
 ${smiley}  %{$reset_color%}'
 
 RPROMPT='%{$fg[black]%} $(vi_mode_prompt_info) $(~/.rvm/bin/rvm-prompt)$(~/bin/git-cwd-info.rb)%{$reset_color%}'
+RPROMPT='$(vi_mode_prompt_info) $(~/.rvm/bin/rvm-prompt)$(~/bin/git-cwd-info.rb)'
 
 # Show completion on first TAB
 setopt menucomplete
