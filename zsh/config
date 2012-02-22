@@ -115,3 +115,7 @@ autoload -U tetris
 zle -N tetris
 bindkey tetris tetris
 
+#setopt auto_cd
+#cdpath=($HOME/thoughtbot $HOME/src)
+
+
