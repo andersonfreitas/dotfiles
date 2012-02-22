@@ -418,3 +418,5 @@ function hablar() {
   afplay ~/Desktop/español/"$*.mp3"
 }
 
+# Using go as autojump
+alias go=j
