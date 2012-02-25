@@ -22,7 +22,7 @@
   remote = magenta
 [core]
 	editor = mvim -f 
-  quotepath = false
+	quotepath = false
   whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
 [diff]
   tool = araxis
@@ -37,6 +37,7 @@
   la = log --pretty='format:%ad %h (%an): %s' --date=short --graph --all
   st = status -sb
   unstage = reset HEAD
+  staged = diff HEAD
 [push]
   default = current
 [help]
