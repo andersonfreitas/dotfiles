@@ -268,3 +268,12 @@ endfunc
 autocmd FileType xml imap <buffer> </ </<C-X><C-O>
 autocmd FileType xml compiler xmllint
 
+" ============================
+" Tabularize - alignment
+" ============================
+" Hit Cmd-Shift-A then type a character you want to align by
+nmap <D-A> :Tabularize /
+vmap <D-A> :Tabularize /
+
+" centralize ruby hash :
+"Tabularize /:/r0c1l0
