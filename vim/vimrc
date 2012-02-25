@@ -145,7 +145,6 @@ colorscheme railscasts
 if has("gui_running")
   " Solarized Colorscheme Config
   let g:solarized_diffmode="high"
-  let g:solarized_hitrail=1
   colorscheme solarized
 endif
 
