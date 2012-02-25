@@ -240,8 +240,6 @@ nmap <leader>gs :Gstatus<CR>
 nmap <leader>gc :Gcommit<CR>
 nmap <leader>gp :Git push<CR>
 nmap <leader>gd :Gdiff<CR>
-map <leader>dp :diffput<CR>
-map <leader>dg :diffget<CR>
 
 " Custom makeprg based on file format
 autocmd FileType ruby setlocal makeprg=ruby\ %   " ruby
