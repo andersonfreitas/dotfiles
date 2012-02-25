@@ -277,3 +277,6 @@ vmap <D-A> :Tabularize /
 
 " centralize ruby hash :
 "Tabularize /:/r0c1l0
+
+" Convert Ruby 1.8 to 1.9 hash syntax in the current selection
+vmap <silent> <leader>crh :s/\%V:\([^ ]*\)\(\s*\)=>/\1:<cr>
