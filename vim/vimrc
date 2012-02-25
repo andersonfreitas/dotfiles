@@ -280,3 +280,8 @@ vmap <D-A> :Tabularize /
 
 " Convert Ruby 1.8 to 1.9 hash syntax in the current selection
 vmap <silent> <leader>crh :s/\%V:\([^ ]*\)\(\s*\)=>/\1:<cr>
+
+" Apple-* Highlight all occurrences of current word (like '*' but without moving)
+" http://vim.wikia.com/wiki/Highlight_all_search_pattern_matches
+nnoremap <D-*> :let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>:set hls<CR>
+
