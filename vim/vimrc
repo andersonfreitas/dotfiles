@@ -43,6 +43,7 @@ set ruler                         " Show cursor position.
 
 set cursorline                    " underline the current line
 
+set guicursor+=n:blinkon0         " stop cursor from blinking in normal mode
 set incsearch                     " Highlight matches as you type.
 set hlsearch                      " Highlight matches.
 
