@@ -136,3 +136,6 @@
 [submodule "vim/bundle/headlights"]
 	path = vim/bundle/headlights
 	url = git://github.com/mbadran/headlights.git
+[submodule "vim/bundle/tagbar"]
+	path = vim/bundle/tagbar
+	url = git://github.com/majutsushi/tagbar
