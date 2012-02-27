@@ -174,8 +174,9 @@ imap <C-Space> <C-p>
 let g:CommandTMaxHeight=10
 "let g:CommandTMatchWindowReverse=1
 
-set listchars=tab:▸\ ,eol:¬
 
+set listchars=tab:▸\ ,eol:¬,trail:·,nbsp:○,extends:→,precedes:←
+set showbreak=↪
 " Automatically source vimrc as it's edited
 "autocmd bufwritepost {.vimrc,vimrc} source $MYVIMRC
 
