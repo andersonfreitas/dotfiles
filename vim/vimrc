@@ -285,3 +285,4 @@ vmap <silent> <leader>crh :s/\%V:\([^ ]*\)\(\s*\)=>/\1:<cr>
 " http://vim.wikia.com/wiki/Highlight_all_search_pattern_matches
 nnoremap <D-*> :let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>:set hls<CR>
 
+nnoremap <Leader>u :GundoToggle<CR> 
