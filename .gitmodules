@@ -142,3 +142,6 @@
 [submodule "vim/bundle/gundo.vim"]
 	path = vim/bundle/gundo.vim
 	url = git://github.com/sjl/gundo.vim.git
+[submodule "vim/bundle/vim-repeat"]
+	path = vim/bundle/vim-repeat
+	url = git://github.com/tpope/vim-repeat.git
