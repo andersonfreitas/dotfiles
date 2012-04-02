@@ -151,3 +151,6 @@
 [submodule "vim/bundle/vim-easymotion"]
 	path = vim/bundle/vim-easymotion
 	url = git://github.com/Lokaltog/vim-easymotion.git
+[submodule "vim/bundle/vim-smartinput"]
+	path = vim/bundle/vim-smartinput
+	url = git://github.com/kana/vim-smartinput.git
