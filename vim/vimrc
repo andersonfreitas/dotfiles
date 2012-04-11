@@ -57,6 +57,7 @@ nmap <silent> <leader>/ :nohlsearch<CR>
 "nnoremap <esc> :noh<return><esc>
 
 set wrap                          " Turn on line wrapping.
+set linebreak                     " Wrap line on words, not characters
 set scroll=10                     " Scroll N line with CTRL-U and CTRL-D
 set scrolloff=0                   " Show N lines of context around the cursor.
 
