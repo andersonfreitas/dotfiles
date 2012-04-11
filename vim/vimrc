@@ -132,8 +132,9 @@ map <down> <nop>
 map <left> <nop>
 map <right> <nop>
 
-"nnoremap j gj
-"nnoremap k gk
+" Improve up/down movement on wrapped lines
+nnoremap j gj
+nnoremap k gk
 
 " Bubble single lines
 nmap <C-Up> ddkP
