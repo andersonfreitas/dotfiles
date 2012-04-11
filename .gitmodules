@@ -154,3 +154,6 @@
 [submodule "vim/bundle/vim-smartinput"]
 	path = vim/bundle/vim-smartinput
 	url = git://github.com/kana/vim-smartinput.git
+[submodule "vim/bundle/dcpu16-vim-syntax"]
+	path = vim/bundle/dcpu16-vim-syntax
+	url = git://github.com/dcpu16/dcpu16-vim-syntax.git
