@@ -180,6 +180,10 @@ let g:CommandTMaxHeight=10
 set listchars=tab:▸\ ,eol:¬,trail:·,nbsp:○,extends:❯,precedes:❮
 "set showbreak=↪
 
+syn match WhiteSpace / / conceal cchar=·
+command! ConcealWhiteSpaces setlocal conceallevel=2 concealcursor=nvi
+command! ShowWhiteSpaces setlocal conceallevel=0
+
 " Automatically source vimrc as it's edited
 "autocmd bufwritepost {.vimrc,vimrc} source $MYVIMRC
 
