@@ -51,8 +51,8 @@ set incsearch                     " Highlight matches as you type.
 set hlsearch                      " Highlight matches.
 
 " Clearing current highlight
-"nmap <silent> <leader>/ :nohlsearch<CR>
-nnoremap <esc> :noh<return><esc>
+nmap <silent> <leader>/ :nohlsearch<CR>
+"nnoremap <esc> :noh<return><esc>
 
 set wrap                          " Turn on line wrapping.
 set scroll=10                     " Scroll N line with CTRL-U and CTRL-D
