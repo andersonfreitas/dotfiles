@@ -32,6 +32,9 @@ set hidden                        " Handle multiple buffers better.
 
 " let h and l traverse lines too
 set whichwrap+=h,l
+
+set autoread
+
 set wildmenu                      " Enhanced command line completion.
 set wildmode=list:longest         " Complete files like a shell.
 
