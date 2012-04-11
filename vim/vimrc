@@ -28,7 +28,7 @@ set showmode                      " Display the mode you're in.
 
 set mouse=a                       " Use mouse in command line vim
 
-set backspace=indent,eol,start    " Intuitive backspacing.
+set backspace=indent,eol,start    " Intuitive backspacing in insert mode.
 
 set hidden                        " Handle multiple buffers better.
 
