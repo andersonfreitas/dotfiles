@@ -21,3 +21,9 @@ vmap <D-[> <gv
 " Command-Shift-F for Ack
 map <D-F> :Ack<space>
 
+" persistent undos - undo after you re-open the file
+" but this gives warnings under command line vim
+" use only in macvim
+set undodir=~/.vim/backups
+set undofile
+
