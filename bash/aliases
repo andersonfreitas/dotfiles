@@ -147,12 +147,6 @@ alias rl='less log/development.log'
 
 alias rrails='touch tmp/restart.txt'
 
-# Text editing
-
-function markdown() { 
-/Applications/TextMate.app/Contents/SharedSupport/Support/bin/Markdown.pl $1 > $1.html 
-}
-
 # From http://github.com/suztomo/dotfiles
 function rmf(){
     for file in $*
