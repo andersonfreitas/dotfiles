@@ -27,3 +27,5 @@ map <D-F> :Ack<space>
 set undodir=~/.vim/backups
 set undofile
 
+" Disable the MacVim contextual menu in order to use it for taglist navigation
+" defaults write org.vim.MacVim MMTranslateCtrlClick 0
