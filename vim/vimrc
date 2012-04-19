@@ -6,17 +6,18 @@ call pathogen#infect()
 call pathogen#helptags()
 
 " Disable ununsed bundles
+set runtimepath-=~/.vim/bundle/L9
 set runtimepath-=~/.vim/bundle/bufexplorer
 set runtimepath-=~/.vim/bundle/closetag.vim
 set runtimepath-=~/.vim/bundle/conque
+set runtimepath-=~/.vim/bundle/csapprox
 set runtimepath-=~/.vim/bundle/ctrlp.vim
-set runtimepath-=~/.vim/bundle/L9
+set runtimepath-=~/.vim/bundle/headlights
+set runtimepath-=~/.vim/bundle/vim-easymotion
 set runtimepath-=~/.vim/bundle/vim-fuzzyfinder
 set runtimepath-=~/.vim/bundle/vim-yankring
-set runtimepath-=~/.vim/bundle/xmledit
 set runtimepath-=~/.vim/bundle/vimroom
-set runtimepath-=~/.vim/bundle/csapprox
-set runtimepath-=~/.vim/bundle/vim-easymotion
+set runtimepath-=~/.vim/bundle/xmledit
 
 syntax enable                     " Turn on syntax highlighting.
 filetype plugin indent on         " Turn on file type detection.
