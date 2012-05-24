@@ -38,6 +38,7 @@
   st = status -sb
   unstage = reset HEAD
   staged = diff HEAD
+  l = "!source ~/bin/dotfiles/githelpers && pretty_git_log"
 [push]
   default = current
 [help]
