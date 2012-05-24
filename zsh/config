@@ -33,10 +33,19 @@ local smiley="%(?,→%{$reset_color%},%{$fg[red]%}☹%{$reset_color%})"
 
 PROMPT='
 %~
-${smiley}  %{$reset_color%}'
+${smiley} %{$reset_color%}'
 
-RPROMPT='%{$fg[black]%} $(vi_mode_prompt_info) $(~/.rvm/bin/rvm-prompt)$(~/bin/git-cwd-info.rb)%{$reset_color%}'
 RPROMPT='$(vi_mode_prompt_info) $(~/.rvm/bin/rvm-prompt)$(~/bin/git-cwd-info.rb)'
+
+function rbenv_prompt_info() {
+  local ruby_version
+  ruby_version=$(rbenv version 2> /dev/null) || return
+  echo "‹$ruby_version" | sed 's/[ \t].*$/›/'
+}
+#alias rvm-prompt=rbenv_prompt_info
+#alias rvm_prompt_info=rbenv_prompt_info
+
+#RPROMPT='$(vi_mode_prompt_info) $(rbenv_prompt_info)$(~/bin/git-cwd-info.rb)'
 
 # Show completion on first TAB
 setopt menucomplete
