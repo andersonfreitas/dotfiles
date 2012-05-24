@@ -285,6 +285,10 @@ endfunc
 
 " Auto close XML tags
 autocmd FileType xml imap <buffer> </ </<C-X><C-O>
+" Close XML tags with shift+opt+. (like TextMate)
+autocmd FileType xml setlocal macmeta              " in favor of the shortcut
+autocmd FileType xml imap <buffer> <M-D-.> </<C-X><C-O>
+
 autocmd FileType xml compiler xmllint
 
 " ============================
