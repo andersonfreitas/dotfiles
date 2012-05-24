@@ -314,3 +314,27 @@ nnoremap <D-*> :let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>:set hls<CR>
 nnoremap <Leader>u :GundoToggle<CR> 
 " Map Q to repeat the last recorded macro
 map Q @@
+function! s:ToggleSurroundingQuotes()
+  " define 'surrounding' opening characters that we want to be able to change
+  let surrounding_beginnings = ['"', "'"]
+  let cursor_position = col('.')
+  let line = getline('.')
+  " walk the line backwards looking for the innermost 'surrounding' opening character
+  while cursor_position > 0
+    let char = line[cursor_position-1]
+    let matched_beginning_index = index(surrounding_beginnings, char)
+    if matched_beginning_index > -1
+      if '"' == char
+        execute 'normal cs"' . "'"
+      else "if "'" == char
+        execute "normal cs'" . '"'
+      endif
+      return
+    endif
+    let cursor_position -= 1
+  endwhile
+endfunction
+
+command! ToggleSurroundingQuotes :call <sid>ToggleSurroundingQuotes()
+noremap <script> <silent> tsq :ToggleSurroundingQuotes<CR>
+
