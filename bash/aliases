@@ -319,7 +319,7 @@ function s3put() {
 function addVim() {
   cd ~/bin/dotfiles
   git submodule add $1 vim/bundle/$2
-  #git submodule init && git submodule update
+  git submodule init && git submodule update
   cd -
 }
 
@@ -389,5 +389,15 @@ alias bclc='echo "10 i 2 o $(date +"%H%M"|cut -b 1,2,3,4 --output-delimiter=" ")
 
 #spec_end_to_end='`(time -p script/test) 2>&1 1>/dev/null | grep real | cut -d " " -f 2`'
 
-# Using go as autojump
-alias go=j
+# Slow down HackerNews
+# sudo ipfw add 100 pipe 666 ip from news.ycombinator.com to any
+# sudo ipfw pipe 666 config bw 3KB/s delay 1000ms
+
+# Ultimate Nmap Scan
+# http://richrines.com/post/10886870567/ultimate-nmap-scan
+function nmap-ultimate() {
+  sudo nmap —spoof-mac Cisco --data-length 9 -f -v -n -O -sS -sV -PN $1
+}
+
+alias mysql_start="sudo /usr/local/mysql/support-files/mysql.server start"
+alias mysql_stop="sudo /usr/local/mysql/support-files/mysql.server stop"
