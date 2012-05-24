@@ -77,7 +77,7 @@ alias o='open . &'
 
 # Processes
 alias tu='top -o cpu' # cpu
-# alias tm='top -o vsize' # memory
+alias tm='top -o vsize' # memory
 
 alias orig-remove="find . -name '*.orig' -exec rm -rf {} \;"
 
