@@ -4,7 +4,7 @@ set encoding=utf-8                " Use UTF-8 everywhere.
 set guioptions-=T                 " Hide toolbar.
 set background=light              " Background.
 set lines=38 columns=130          " Window dimensions.
-set guioptions-=r                 " Don't show right scrollbar
+"set guioptions-=r                 " Don't show right scrollbar
 set go-=L                         " Hide the left scrollbar
 
 " Using Command+t for CommandT
