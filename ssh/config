@@ -1,9 +1,27 @@
+Host qa
+  HostName 177.71.189.26
+  User medscale
+  ForwardAgent yes
 
 Host staging
+  HostName 107.20.169.249
+  User medscale 
+  ForwardAgent yes
+  #IdentityFile ~/Dropbox/Medscale/AmazonAWS/medscale.pem
+
+Host med01
+  HostName 177.71.187.175
+  User medscale 
+
+Host med02
+  HostName 177.71.187.176
+  User medscale
 
 Host *
-  Compression yes
-  CompressionLevel 7
+  # Causes problems with Capistrano: "zlib(finalizer): the stream was freed prematurely."
+  #Compression yes
+  #CompressionLevel 7
+
   #ForwardAgent yes
   #ControlMaster auto
   #UserKnownHostsFile /dev/null
