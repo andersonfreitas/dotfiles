@@ -1,6 +1,7 @@
 [user]
 	name = Anderson Freitas
 	email = anderson.amf@gmail.com
+	signingkey = CA9971C0
 [color]
 	status = auto
 	branch = auto
