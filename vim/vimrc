@@ -1,4 +1,5 @@
 set nocompatible                  " Must come first because it changes other options.
+set noswapfile
 
 source ~/.vim/bundle/vim-pathogen/autoload/pathogen.vim
 
@@ -11,7 +12,7 @@ set runtimepath-=~/.vim/bundle/bufexplorer
 set runtimepath-=~/.vim/bundle/closetag.vim
 set runtimepath-=~/.vim/bundle/conque
 set runtimepath-=~/.vim/bundle/csapprox
-set runtimepath-=~/.vim/bundle/ctrlp.vim
+"set runtimepath-=~/.vim/bundle/ctrlp.vim
 set runtimepath-=~/.vim/bundle/headlights
 set runtimepath-=~/.vim/bundle/vim-easymotion
 set runtimepath-=~/.vim/bundle/vim-fuzzyfinder
@@ -43,9 +44,24 @@ set wildmode=list:longest         " Complete files like a shell.
 
 set autoindent
 
+set virtualedit=block
+" Useful for creating tables in Markdown
+" set virtualedit+=all " or use visual
+
 set ignorecase                    " Case-insensitive searching.
 set smartcase                     " But case-sensitive if expression contains a capital letter.
 "set smarttab
+
+" Ignorable Files
+set wildignore+=*.tar,*.tgz,*.gz,*.dmg,*.zip
+set wildignore+=*.pdf,*/.git/*,*.log,*.lck
+set wildignore+=*.pid,*.jar,*.DS_Store
+" Ignore Rails folders
+set wildignore+=*/log/*,*/tmp/*/*
+" Ignore compiled assets
+set wildignore+=*/public/assets/*
+set wildignore+=*/public/javascripts/compiled/*
+set wildignore+=*/public/stylesheets/compiled/*
 
 set number                        " Show line numbers.
 set ruler                         " Show cursor position.
@@ -53,6 +69,10 @@ set ruler                         " Show cursor position.
 set cursorline                    " underline the current line
 
 set guicursor+=n:blinkon0         " stop cursor from blinking in normal mode
+
+" using spaces to fill the diff. Should use high contrast!
+set fillchars=vert:\|,fold:·,diff:\     
+
 set incsearch                     " Highlight matches as you type.
 set hlsearch                      " Highlight matches.
 
@@ -75,7 +95,10 @@ set nobackup                      " Don't make a backup before overwriting a fil
 set nowritebackup                 " And again.
 set directory=$HOME/.vim/tmp//,.  " Keep swap files in one location
 
-let g:MarkdownPreviewTMP = $HOME.'/.vim/tmp/'
+let g:MarkdownPreviewTMP = $HOME.'/.vim/markdown/'
+let g:MarkdownPreviewAlwaysOpen=0
+"autocmd BufWritePost *.md :MDP
+autocmd FileType markdown setlocal tabstop=4 shiftwidth=4
 
 set tabstop=2                    " Global tab width.
 set shiftwidth=2                 " And again, related.
@@ -94,8 +117,8 @@ set statusline +=%y                            " file type
 set statusline +=\ %<%f                        " file path (relative to current directory)
 set statusline +=%m                            " modified flag
 set statusline +=%=                            " right align
-set statusline +=%{fugitive#statusline()}      " current git branch
-set statusline +=%{rvm#statusline()}           " rvm info
+"set statusline +=%{fugitive#statusline()}      " current git branch
+"set statusline +=%{rvm#statusline()}           " rvm info
 set statusline +=%5l                           " current line
 set statusline +=/%L                           " total lines
 set statusline +=%4v\                          " virtual column number
@@ -107,6 +130,11 @@ set statusline +=0x%04B\                       " character under cursor
 " Automatic fold settings for specific files. Uncomment to use.
 autocmd FileType ruby setlocal foldmethod=syntax foldlevelstart=99 nofoldenable
 autocmd FileType css  setlocal foldmethod=indent shiftwidth=2 tabstop=2 foldlevelstart=99 nofoldenable
+
+" XML wrapping
+let g:xml_syntax_folding=1
+autocmd FileType xml setlocal nowrap foldmethod=syntax foldlevel=99
+"set foldtext=v:folddashes.getline(v:foldstart)
 
 set foldtext=MyFoldText()
 function! MyFoldText()
@@ -147,17 +175,19 @@ endfunction
 autocmd FileType haml setlocal noexpandtab
 
 " Opening Guardfile as a Ruby file
-autocmd BufRead,BufNewFile Guardfile set filetype=ruby
+autocmd BufRead,BufNewFile Guardfile setlocal filetype=ruby
 
 " Making the vim-css-color work with SCSS files
-autocmd BufRead,BufNewFile *.scss set filetype=css
+"autocmd BufRead,BufNewFile *.scss setlocal filetype=css
+
+autocmd BufRead,BufNewFile gitconfig setlocal filetype=gitconfig
 
 " Avoiding trailing white-space in Ruby files
 autocmd BufWritePre {*.rb,*.js,*.coffee,*.scss,*.haml} :%s/\s\+$//e
 
 " Always open a NERDTree
-autocmd VimEnter * if argc() == 0 | NERDTree | endif
-autocmd VimEnter * if argc() == 0 | wincmd p | endif
+"autocmd VimEnter * if argc() == 0 | NERDTree | endif
+"autocmd VimEnter * if argc() == 0 | wincmd p | endif
 
 " \t to open NERDTree
 map <Leader>n :NERDTreeToggle<CR>
@@ -203,7 +233,8 @@ map <C-k> <C-w>k
 map <C-l> <C-w>l
 
 " http://nvie.com/posts/how-i-boosted-my-vim/
-cmap w!! w !sudo tee % >/dev/null
+"cmap w!! w !sudo tee % >/dev/null
+cmap w!! %!sudo tee >/dev/null %
 
 " Easier folding with <Space>
 nnoremap <Space> za
@@ -214,6 +245,8 @@ imap <C-Space> <C-p>
 " Command-T configs
 let g:CommandTMaxHeight=10
 "let g:CommandTMatchWindowReverse=1
+let g:CommandTAcceptSelectionMap = '<C-t>'
+let g:CommandTAcceptSelectionTabMap = '<CR>'
 
 "set listchars=tab:▸\ ,eol:¬,trail:·,nbsp:○,extends:→,precedes:←
 set listchars=tab:▸\ ,eol:¬,trail:·,nbsp:○,extends:❯,precedes:❮
@@ -226,7 +259,8 @@ command! ShowWhiteSpaces setlocal conceallevel=0
 " Automatically source vimrc as it's edited
 "autocmd bufwritepost {.vimrc,vimrc} source $MYVIMRC
 
-autocmd FocusGained * call s:UpdateNERDTree()
+"autocmd FocusGained * call s:UpdateNERDTree()
+"autocmd FocusGained * if match(bufname("%"), 'NERD_tree') >=0 | :echomsg "FocusGained on NERDtree" | end
 
 " Automatically close vim if NERDtree is the last buffer
 autocmd WinEnter * call s:CloseIfOnlyNerdTreeLeft()
@@ -244,7 +278,7 @@ function! s:CloseIfOnlyNerdTreeLeft()
 endfunction
 
 " NERDTree utility function
-function s:UpdateNERDTree(...)
+function! s:UpdateNERDTree(...)
   let stay = 0
 
   if(exists("a:1"))
@@ -267,12 +301,16 @@ function s:UpdateNERDTree(...)
   endif
 endfunction
 
+autocmd FocusGained * :CommandTFlush
+
 " ConqueTerm
 "let g:ConqueTerm_Color          = 1
 let g:ConqueTerm_TERM           = 'xterm'
 let g:ConqueTerm_Syntax         = 'conque'
 let g:ConqueTerm_ReadUnfocused  = 1
 let g:ConqueTerm_CWInsert       = 1
+
+let g:EasyMotion_leader_key = '<Leader>'
 
 nmap cp :let @" = expand("%:p")
 
@@ -304,7 +342,7 @@ imap <D-r> <esc>:make<CR>
 autocmd FileType ruby map <buffer> <D-r> :w ! ruby<cr>
 autocmd FileType ruby imap <buffer> <D-r> <esc>:w ! ruby<cr>
 
-iabbrev ddate <C-r>=strftime("%F")<CR>
+"iabbrev ddate <C-r>=strftime("%F")<CR>
 
 " \rs to remove trailings spaces
 map <leader>rs :%s/\s\+$//e<cr>
@@ -320,11 +358,20 @@ endfunc
 
 " Auto close XML tags
 autocmd FileType xml imap <buffer> </ </<C-X><C-O>
+"autocmd FileType xml imap <buffer> <tab> <esc>bdwa<<esc>pa></<esc>%i
+
 " Close XML tags with shift+opt+. (like TextMate)
 autocmd FileType xml setlocal macmeta              " in favor of the shortcut
 autocmd FileType xml imap <buffer> <M-D-.> </<C-X><C-O>
 
 autocmd FileType xml compiler xmllint
+
+" Format and Tidy XML
+autocmd FileType xml nnoremap <buffer> <F2> :silent 1,$!xmllint --encode UTF-8 --format --recover - 2>/dev/null<cr>
+
+" Find a way to make it work with selections
+"autocmd FileType xml setlocal equalprg=xmllint\ --encode\ UTF-8\ --format\ --recover\ -\ 2>/dev/null
+
 
 " ============================
 " Tabularize - alignment
@@ -332,23 +379,115 @@ autocmd FileType xml compiler xmllint
 " Hit Cmd-Shift-A then type a character you want to align by
 nmap <D-A> :Tabularize /
 vmap <D-A> :Tabularize /
-
-" centralize ruby hash :
-"Tabularize /:/r0c1l0
+"AddTabularPattern hash19 /:/r0c1l0
 
 " Convert Ruby 1.8 to 1.9 hash syntax in the current selection
-vmap <silent> <leader>crh :s/\%V:\([^ ]*\)\(\s*\)=>/\1:<cr>
+autocmd FileType ruby vmap <buffer> <silent> <leader>crh :s/\%V:\([^ ]*\)\(\s*\)=>/\1:<cr>
 
 " Apple-* Highlight all occurrences of current word (like '*' but without moving)
 " http://vim.wikia.com/wiki/Highlight_all_search_pattern_matches
 nnoremap <D-*> :let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>:set hls<CR>
+" gd??
+
 " don't move on matches
 "nnoremap * *<C-O>
 "nnoremap # #<C-O>
 
+"amenu Anderson.\Sort\ File <Esc>:%!sort<cr>
+" %!sort
+" %!grep <something>
+" %!nl
+" !!date
+" !!ls
+
 nnoremap <Leader>u :GundoToggle<CR> 
+
+" Source a single line of Vimscript
+nnoremap <Leader>S ^vg_y:execute @@<CR>
+
+" Better comand-line editing
+cnoremap <C-j> <t_kd>
+cnoremap <C-k> <t_ku>
+cnoremap <C-a> <Home>
+cnoremap <C-e> <End>
+
+" Insert an =>
+imap <c-l> <space>=><space>
+
+" Swipe gestures to change buffers
+map <SwipeLeft> :bprev<CR>
+map <SwipeRight> :bnext<CR>
+
+" When opening a file, always jump to the last cursor position
+autocmd BufReadPost *                                                           
+\ if line("'\"") > 0 && line ("'\"") <= line("$") |                             
+\   exe "normal g'\"" |                                                         
+\ endif
+
+" \ww for wrapping
+nmap <silent> <leader>ww :set wrap!<CR>
+
+" Reselect visual block after indent/outdent
+vnoremap < <gv
+vnoremap > >gv
+
+" Show Git diff in window split when commiting
+"autocmd FileType gitcommit DiffGitCached | call feedkeys("\<C-w\>w")
+autocmd FileType gitcommit DiffGitCached | wincmd L | wincmd p
+
+" Save on FocusLost
+"au FocusLost * :silent! wall                 
+
+" Return to normal mode on FocustLost
+au FocusLost * call feedkeys("\<C-\>\<C-n>") 
+
+" Keep search pattern at the center of the screen.
+nnoremap <silent> n nzz
+nnoremap <silent> N Nzz
+"nnoremap <silent> * *zz
+"nnoremap <silent> # #zz
+"nnoremap <silent> g* g*zz
+"nnoremap <silent> g# g#zz
+
+" Mark TaskPaper tasks @done with ⌘-d
+autocmd FileType taskpaper nmap <buffer> <D-d> <leader>td
+
+" Use tab to increase/decrease indentation
+autocmd FileType taskpaper inoremap <buffer> <tab> <esc>V>gv<esc>la
+autocmd FileType taskpaper inoremap <buffer> <s-tab> <esc>V<gv<esc>a
+
+" Auto close the preview window after a short time of inactivity
+autocmd CursorHold * if pumvisible() == 0|pclose|endif
+autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
+
+"set diffopt=context:15
+
+" Opening .nfo files with the right encoding
+autocmd BufRead,BufNewFile *.nfo edit ++enc=cp437
+
+" Limit the text width of text files
+autocmd FileType text setlocal textwidth=78 colorcolumn=79
+
+" Resize splits when the window is resized
+au VimResized * exe 'normal! \<c-w>='
+
+" Make <leader>' switch between ' and "
+"nnoremap <leader>' ""yls<c-r>={'"': "'", "'": '"'}[@"]<cr><esc>
+nmap <leader>" cs'"
+nmap <leader>' cs"'
+
+"nmap <leader>' :<c-u>execute 'normal ""ywcs' @"{'"': "'", "'": '"'}[@"]<cr>
+"nmap <leader>x :execute 'normal ""ywcs' @" ')'
+
 " Map Q to repeat the last recorded macro
 map Q @@
+
+" Faster search & replace
+noremap ;; :%s:::g<Left><Left><Left>
+noremap ;' :%s:::cg<Left><Left><Left><Left>
+" TODO: use word under cursor as search or replace param
+"noremap ;w :%s:'<cword>'::cg<Left><Left><Left>
+
 function! s:ToggleSurroundingQuotes()
   " define 'surrounding' opening characters that we want to be able to change
   let surrounding_beginnings = ['"', "'"]
@@ -372,4 +511,46 @@ endfunction
 
 command! ToggleSurroundingQuotes :call <sid>ToggleSurroundingQuotes()
 noremap <script> <silent> tsq :ToggleSurroundingQuotes<CR>
+
+function! s:ReadPwd()
+  let pwd_file = $HOME . "/.vim/last-known-dir"
+  if filereadable(pwd_file)
+    let f = readfile(pwd_file)
+    echomsg "You're now at " . f[0] 
+    exec "cd " . f[0] 
+  endif
+endfunction
+
+function! s:SavePwd()
+  let pwd = [getcwd()]
+  call writefile(pwd, $HOME . "/.vim/last-known-dir")
+endfunction
+
+"autocmd VimEnter * if argc() == 0 | call s:ReadPwd() | endif
+autocmd WinLeave * call s:SavePwd()
+
+" Use sane regexes
+nnoremap / /\v
+vnoremap / /\v
+
+autocmd FileType markdown nmap <buffer> <leader>= yypVr=
+autocmd FileType markdown nmap <buffer> <leader>- yypVr-
+
+" Auto correct to the first word in the dictionary
+nmap <leader>s 1z=]s
+
+" Emacs-like beginning and end of line.
+imap <c-e> <c-o>$
+imap <c-a> <c-o>^
+
+map <Leader>vi :tabe ~/.vimrc<CR>
+"map <Leader>vi :vnew ~/.vimrc<CR>
+
+map <Leader>e :e <C-R>=expand("%:p:h") . '/'<CR>
+
+" Use _ as a word separator
+"set iskeyword-=_
+
+" Insert a Markdown table
+vmap <leader>tab r\|gvholr-gvjokr <cr>
 
