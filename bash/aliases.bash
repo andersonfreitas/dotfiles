@@ -7,9 +7,9 @@ alias grep='GREP_COLOR="1;37;41" LANG=C grep --color=auto'
 alias ss='/usr/bin/python ~/bin/webkit2png/webkit2png --width=1024 --thumb --scale=1'
 
 # Utility
-alias reload='source ~/bin/dotfiles/bash/{aliases,env}'
-alias ea="$EDITOR ~/bin/dotfiles/bash/aliases && reload" # Edit aliases
-alias ee="$EDITOR ~/bin/dotfiles/bash/env && reload"
+alias reload='source ~/bin/dotfiles/bash/{aliases.bash,env.bash}'
+alias ea="$EDITOR ~/bin/dotfiles/bash/aliases.bash && reload" # Edit aliases
+alias ee="$EDITOR ~/bin/dotfiles/bash/env.bash && reload"
 
 # Common -- Some are from Damian Conway
 alias a='ls -A' # -A all except literal . ..
@@ -67,7 +67,7 @@ function zipd() {
 }
 
 function zipdt() {
-	zip -r $1-`date "+%Y.%m.%d-%H-%M-%S"`.zip $1
+	zip -x \*.log tmp  -r $1-`date "+%Y.%m.%d-%H-%M-%S"`.zip $1
 }
 
 # Finder

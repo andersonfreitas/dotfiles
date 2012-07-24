@@ -1,1 +1,1 @@
-. ~/bin/dotfiles/bash/env
+. ~/bin/dotfiles/bash/env.bash

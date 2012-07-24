@@ -1,4 +1,4 @@
-source ~/bin/dotfiles/bash/aliases
+source ~/bin/dotfiles/bash/aliases.bash
 
 function colours() {
   for i in {0..255} ; do
