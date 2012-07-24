@@ -22,9 +22,10 @@
   local = yellow
   remote = magenta
 [core]
-	editor = mvim -f 
+	editor = mvim -f
 	quotepath = false
   whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
+	excludesfile = ~/.gitignore_global
 [diff]
   tool = araxis
 [merge]
