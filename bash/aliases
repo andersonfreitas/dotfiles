@@ -16,12 +16,12 @@ alias a='ls -A' # -A all except literal . ..
 alias la="ls -A -l -G"
 #alias cdd='cd -'  # goto last dir cd'ed from
 alias cl='clear; l'
-function cdc() { 
-    cd $1; ls 
+function cdc() {
+    cd $1; ls
 }
 alias cls='clear; ls'
 alias h='history'
-alias l.='ls -d .[^.]*' 
+alias l.='ls -d .[^.]*'
 alias l='ls -lhGt'  # -l long listing, most recent first
                     # -G color
 alias lh="ls -lh"
@@ -30,9 +30,9 @@ alias lt='ls -lt' # sort with recently modified first
 alias md='mkdir -p'
 alias ..='cd ..'   # up one dir
 
-function mkcd() { 
+function mkcd() {
     mkdir -p "$1"
-    cd "$1" 
+    cd "$1"
 }
 
 function dec() {
@@ -42,7 +42,7 @@ function dec() {
 
 function decdir() {
 	for a in $(find . -name '*.class')
-	do 
+	do
 		jad -s java -d `dirname $a` $a
 	done
 }
@@ -54,8 +54,8 @@ function jgrep() {
 
 alias e='exit'
 alias k9="killall -9"
-function killnamed () { 
-    ps ax | grep $1 | cut -d ' ' -f 2 | xargs kill 
+function killnamed () {
+    ps ax | grep $1 | cut -d ' ' -f 2 | xargs kill
 }
 
 function zipr() {
@@ -86,7 +86,7 @@ alias gc='git commit -v'
 alias g.='git add .'
 alias gca='git commit -v -a'
 # Commit pending changes and quote all args as message
-function gg() { 
+function gg() {
     git commit -v -a -m "$*"
 }
 alias gd='git diff --word-diff'
@@ -99,7 +99,7 @@ alias gppoc="BRANCH=`git branch --no-color 2>/dev/null | grep '*' | awk '{ print
 alias gppom="git pull origin master && git push origin master"
 
 function gdiff() {
-	find . -name "*$**" -exec git diff HEAD -- {} +; 
+	find . -name "*$**" -exec git diff HEAD -- {} +;
 }
 
 # Undo a `git push`
@@ -114,9 +114,9 @@ alias g='git'
 alias eg='mate .git/config'
 
 # Quickly clobber a file and checkout
-function grf() { 
+function grf() {
   rm $1
-  git checkout $1 
+  git checkout $1
 }
 
 ## Rails
@@ -197,7 +197,7 @@ alias tcptrack=iftop
 # Utility for testing upload throughtput
 function ssh_network_throughtput() {
 	host=$1
-	yes | pv | ssh $host "cat > /dev/null"	
+	yes | pv | ssh $host "cat > /dev/null"
 }
 
 alias count_java='wc -l `find . -name \*.java -print`'
@@ -206,9 +206,9 @@ alias count_c='wc -l `find . -name \*.c -print`'
 alias rebuild-open-with='/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user'
 
 # 19) RESUME SCP OF A BIG FILE
-# 
+#
 # rsync –partial –progress –rsh=ssh $file_source $user@$host:$destination_file
-# 
+#
 # It can resume a failed secure copy ( usefull when you transfer big files like db dumps through vpn ) using rsync.
 # It requires rsync installed in both hosts.
 # rsync –partial –progress –rsh=ssh $file_source $user@$host:$destination_file local -> remote
@@ -216,9 +216,9 @@ alias rebuild-open-with='/System/Library/Frameworks/CoreServices.framework/Frame
 # rsync –partial –progress –rsh=ssh $user@$host:$remote_file $destination_file remote -> local
 
 # 23) THROTTLE BANDWIDTH WITH CSTREAM
-# 
+#
 # tar -cj /backup | cstream -t 777k | ssh host 'tar -xj -C /backup'
-# 
+#
 # this bzips a folder and transfers it over the network to “host” at 777k bit/s.
 # cstream can do a lot more, have a look http://www.cons.org/cracauer/cstream.html#usage
 # for example:
@@ -228,7 +228,7 @@ alias noidle="pmset noidle"
 
 ###
 # Upload a file using ditto and curl
-# ditto -cj build/Debug-iphonesimulator/YourApp.app - | curl -F "email=you@somewhere.com" -F "file=@-" http://www.pieceable.com/view/publish 
+# ditto -cj build/Debug-iphonesimulator/YourApp.app - | curl -F "email=you@somewhere.com" -F "file=@-" http://www.pieceable.com/view/publish
 #
 
 # Random password generator
@@ -236,7 +236,7 @@ alias noidle="pmset noidle"
 
 
 
-# → sandbox-exec -p '(version 1) (allow default) (deny network*)' /bin/bash 
+# → sandbox-exec -p '(version 1) (allow default) (deny network*)' /bin/bash
 
 # https://github.com/rtomayko/bcat
 
@@ -268,7 +268,7 @@ alias traceroute=mtr
 #  or
 #   /etc/paths
 #   /etc/paths.d/
-# 
+#
 function show_path () {
 	echo $PATH | tr ':' '\n' | nl
 }
@@ -278,7 +278,7 @@ function f() {
 }
 
 # Exemplos de find
-# 	Busca por string em apenas alguns arquivos 
+# 	Busca por string em apenas alguns arquivos
 # 	find . | grep en.yml | xargs fgrep "example"
 
 # replacement netstat cmd to find ports used by apps on OS X
@@ -296,7 +296,7 @@ alias hide_folder="chflags hidden $1"
 #
 # usage:
 #   s3put mybackup.tgz bucket/name
-# 
+#
 function s3put() {
 	local aws_access_key=`awk 'NR==1' ~/.s3key`
 	local aws_secret_key=`awk 'NR==2' ~/.s3key`
