@@ -6,7 +6,7 @@ export EDITOR="subl -w"
 export GIT_EDITOR="vim"
 #export EDITOR='mvim -f -c "au VimLeave * \!open -a iTerm"'
 
-export PATH=~/bin:~/bin/araxis-utils:/opt/local/bin:/opt/local/sbin:/usr/local/mysql/bin:/usr/local/git/bin:/Developer/usr/bin:$PATH
+export PATH=~/bin:/usr/local/bin:/usr/local/sbin:$PATH
 export PATH=$PATH
 export HISTSIZE=10000
 export PROMPT_COMMAND='echo -ne "\033]0;${PWD/#$HOME/~}"; echo -ne "\007"'
