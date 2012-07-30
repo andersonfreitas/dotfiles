@@ -1,0 +1,4 @@
+#!/bin/sh
+echo $* >> ~/Desktop/wk.txt
+tee >> ~/Desktop/wk.txt
+

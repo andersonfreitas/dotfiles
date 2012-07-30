@@ -1,0 +1,10 @@
+#!/Users/andersonfreitas/.rvm/bin/rvm-auto-ruby
+
+require 'rubygems'
+require 'hpricot'
+require 'open-uri'
+
+file = open(ARGV[1]) if ARGV[1]
+file ||= STDIN
+doc = Hpricot(file)
+puts doc / ARGV[0]
