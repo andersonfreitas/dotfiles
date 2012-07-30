@@ -7,5 +7,7 @@ source ~/.dotfiles/zsh/git-flow-completion.zsh
 # Add RVM to PATH for scripting
 PATH=$PATH:$HOME/.rvm/bin
 
-# rbenv
-#eval "$(rbenv init -)"
+if [ -f `brew --prefix`/etc/autojump ]; then
+    . `brew --prefix`/etc/autojump
+fi
+
