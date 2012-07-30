@@ -22,6 +22,7 @@ function cdc() {
 alias cls='clear; ls'
 alias h='history'
 alias l.='ls -d .[^.]*'
+alias ll.='ls -l -d .[^.]*'
 alias l='ls -lhGt'  # -l long listing, most recent first
                     # -G color
 alias lh="ls -lh"
@@ -76,6 +77,11 @@ alias o='open . &'
 # Processes
 alias tu='top -o cpu' # cpu
 alias tm='top -o vsize' # memory
+alias top=htop
+alias tu='htop --sort-key PERCENT_CPU' # cpu
+alias tm='htop --sort-key PERCENT_MEM' # memory
+
+
 
 alias orig-remove="find . -name '*.orig' -exec rm -rf {} \;"
 
