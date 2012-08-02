@@ -10,6 +10,7 @@ alias ss='/usr/bin/python ~/bin/webkit2png/webkit2png --width=1024 --thumb --sca
 alias reload='source ~/.dotfiles/bash/{aliases.bash,env.bash}'
 alias ea="$EDITOR ~/.dotfiles/bash/aliases.bash && reload" # Edit aliases
 alias ee="$EDITOR ~/.dotfiles/bash/env.bash && reload"
+alias ec="$EDITOR ~/.dotfiles/ && reload"
 
 # Common -- Some are from Damian Conway
 alias a='ls -A' # -A all except literal . ..
