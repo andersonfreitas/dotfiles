@@ -47,8 +47,14 @@ defaults write NSGlobalDomain AppleFontSmoothing -int 2
 # Disable the warning before emptying the Trash
 defaults write com.apple.finder WarnOnEmptyTrash -bool false
 
+# Don’t show Dashboard as a Space
+defaults write com.apple.dock "dashboard-in-overlay" -bool true
+
+# Completely disable the useless Dashboard
+defaults write com.apple.dashboard mcx-disabled -bool true
+
 killall "Finder" > /dev/null 2>&1
+killall Dock
 
 # Disable the MacVim contextual menu in order to use it for taglist navigation
 defaults write org.vim.MacVim MMTranslateCtrlClick 0
-
