@@ -1,6 +1,6 @@
-. ~/bin/dotfiles/bash/env.bash
-. ~/bin/dotfiles/bash/config.bash
-. ~/bin/dotfiles/bash/aliases.bash
+. ~/.dotfiles/bash/env.bash
+. ~/.dotfiles/bash/config.bash
+. ~/.dotfiles/bash/aliases.bash
 
 # Add RVM to PATH for scripting
 # PATH=$PATH:$HOME/.rvm/bin
