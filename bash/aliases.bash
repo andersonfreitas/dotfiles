@@ -404,9 +404,6 @@ function nmap-ultimate() {
   sudo nmap —spoof-mac Cisco --data-length 9 -f -v -n -O -sS -sV -PN $1
 }
 
-alias mysql_start="sudo /usr/local/mysql/support-files/mysql.server start"
-alias mysql_stop="sudo /usr/local/mysql/support-files/mysql.server stop"
-
 alias pg_start="pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start"
 alias pg_stop="pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log stop"
 
