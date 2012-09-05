@@ -1,0 +1,37 @@
+#!/bin/bash
+
+# Make sure we’re using the latest Homebrew
+brew update
+
+# Upgrade any already-installed formulae
+brew upgrade
+
+# Install GNU core utilities (those that come with OS X are outdated)
+brew install coreutils
+echo "Don’t forget to add $(brew --prefix coreutils)/libexec/gnubin to \$PATH."
+# Install GNU `find`, `locate`, `updatedb`, and `xargs`, g-prefixed
+brew install findutils
+
+# Install everything else
+brew install ack
+brew install autojump
+brew install class-dump
+brew install ctags
+brew install git
+brew install git-flow
+brew install git-multipush
+brew install htop-osx
+brew install iftop
+brew install mysql
+brew install node
+brew install pbzip2
+brew install s3cmd
+brew install ssh-copy-id
+brew install tree
+brew install watch
+brew install webkit2png
+brew install wget --enable-iri
+brew install zsh
+
+# Remove outdated versions from the cellar
+brew cleanup
