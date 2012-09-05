@@ -53,7 +53,17 @@ defaults write com.apple.dock "dashboard-in-overlay" -bool true
 # Completely disable the useless Dashboard
 defaults write com.apple.dashboard mcx-disabled -bool true
 
-killall "Finder" > /dev/null 2>&1
+# Save screenshots to the desktop
+# defaults write com.apple.screencapture location -string "$HOME/Desktop"
+
+# Save screenshots in PNG format (other options: BMP, GIF, JPG, PDF, TIFF)
+# defaults write com.apple.screencapture type -string "png"
+
+# Disable shadow in screenshots
+# defaults write com.apple.screencapture disable-shadow -bool true
+
+killall SystemUIServer
+killall Finder
 killall Dock
 
 # Disable the MacVim contextual menu in order to use it for taglist navigation
