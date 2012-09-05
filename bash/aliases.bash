@@ -3,8 +3,7 @@
 # Colored grep
 alias grep='GREP_COLOR="1;37;41" LANG=C grep --color=auto'
 
-# https://github.com/paulhammond/webkit2png/
-alias ss='/usr/bin/python ~/bin/webkit2png/webkit2png --width=1024 --thumb --scale=1'
+alias ss='webkit2png --width=1024 -d --thumb --scale=1 --dir=~/Desktop/'
 
 # Utility
 alias reload='source ~/.dotfiles/bash/{aliases.bash,env.bash}'
