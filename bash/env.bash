@@ -16,4 +16,6 @@ export PAGER='less' # less is more (than more)
 export LESSEDIT='mate -l %lm %f' # open in textmate from less
 export LESS='-XFRf' # don't clear screen on exit, show colors
 
+export NODE_PATH=/usr/local/lib/node_modules
+
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
