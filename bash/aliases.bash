@@ -152,6 +152,10 @@ alias rl='less log/development.log'
 
 alias rrails='touch tmp/restart.txt'
 
+# for zsh
+alias rake='noglob rake'
+alias bundle='noglob bundle'
+
 # From http://github.com/suztomo/dotfiles
 function rmf(){
     for file in $*
