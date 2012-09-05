@@ -9,10 +9,10 @@ alias ss='webkit2png --width=1024 -d --thumb --scale=1 --dir=~/Desktop/'
 alias reload='source ~/.dotfiles/bash/{aliases.bash,env.bash}'
 alias ea="$EDITOR ~/.dotfiles/bash/aliases.bash && reload" # Edit aliases
 alias ee="$EDITOR ~/.dotfiles/bash/env.bash && reload"
-alias ec="$EDITOR ~/.dotfiles/ && reload"
+alias ec="subl ~/.dotfiles/"
 
 # Common -- Some are from Damian Conway
-alias a='ls -A' # -A all except literal . ..
+# alias a='ls -A' # -A all except literal . ..
 alias la="ls -A -l -G"
 #alias cdd='cd -'  # goto last dir cd'ed from
 alias cl='clear; l'
@@ -20,6 +20,7 @@ function cdc() {
     cd $1; ls
 }
 alias cls='clear; ls'
+alias ls='ls --color=auto'
 alias h='history'
 alias l.='ls -d .[^.]*'
 alias ll.='ls -l -d .[^.]*'
@@ -71,8 +72,27 @@ function zipdt() {
 	zip -x \*.log tmp  -r $1-`date "+%Y.%m.%d-%H-%M-%S"`.zip $1
 }
 
+# from: http://hackercodex.com/guide/parallel-bzip-compression/
+# # Check to see if pbzip2 is already on path; if so, set BZIP_BIN appropriately
+# type -P pbzip2 &>/dev/null && export BZIP_BIN="pbzip2"
+# # Otherwise, default to standard bzip2 binary
+# if [ -z $BZIP_BIN ]; then
+#   export BZIP_BIN="bzip2"
+# fi
+# alias bz=$BZIP_BIN
+
+export BZIP_BIN="pbzip2"
+
+tarb() {
+  tar -cf "$1".tbz --use-compress-prog=$BZIP_BIN "$1"
+}
+untarbzip() {
+  $BZIP_BIN -dc "$1" | tar x --exclude="._*"
+}
+alias buntar=untarbzip
+
 # Finder
-alias o='open . &'
+alias o='open .'
 
 # Processes
 alias tu='top -o cpu' # cpu
