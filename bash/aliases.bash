@@ -422,6 +422,13 @@ alias bclc='echo "10 i 2 o $(date +"%H%M"|cut -b 1,2,3,4 --output-delimiter=" ")
 # sudo ipfw add 100 pipe 666 ip from news.ycombinator.com to any
 # sudo ipfw pipe 666 config bw 3KB/s delay 1000ms
 
+
+# Completely block HackerNews
+# sudo ipfw add 7890 deny ip from news.ycombinator.com to any
+
+alias hn_block="sudo ipfw add 7890 deny ip from news.ycombinator.com to any"
+alias hn_free="sudo ipfw del 07890"
+
 # Ultimate Nmap Scan
 # http://richrines.com/post/10886870567/ultimate-nmap-scan
 function nmap-ultimate() {
