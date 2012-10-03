@@ -3,7 +3,6 @@ export CLICOLOR=1
 #export EDITOR="vim"
 #export EDITOR="mvim -f"
 export EDITOR="subl -w"
-export GIT_EDITOR="vim"
 #export EDITOR='mvim -f -c "au VimLeave * \!open -a iTerm"'
 
 export PATH=~/bin:/usr/local/bin:/usr/local/sbin:$PATH
@@ -17,5 +16,9 @@ export LESSEDIT='mate -l %lm %f' # open in textmate from less
 export LESS='-XFRf' # don't clear screen on exit, show colors
 
 export NODE_PATH=/usr/local/lib/node_modules
+
+export LANGUAGE=en_US.UTF-8
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
