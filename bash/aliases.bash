@@ -437,6 +437,7 @@ function nmap-ultimate() {
 alias pg_start="pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start"
 alias pg_stop="pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log stop"
 
+alias redis-start="redis-server /usr/local/etc/redis.conf"
 function block() {
   if ! [ "$1" = "" ] ; then
     case $1 in
