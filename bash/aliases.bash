@@ -422,13 +422,6 @@ alias bclc='echo "10 i 2 o $(date +"%H%M"|cut -b 1,2,3,4 --output-delimiter=" ")
 # sudo ipfw add 100 pipe 666 ip from news.ycombinator.com to any
 # sudo ipfw pipe 666 config bw 3KB/s delay 1000ms
 
-
-# Completely block HackerNews
-# sudo ipfw add 7890 deny ip from news.ycombinator.com to any
-
-alias hn_block="sudo ipfw add 7890 deny ip from news.ycombinator.com to any"
-alias hn_free="sudo ipfw del 07890"
-
 # Ultimate Nmap Scan
 # http://richrines.com/post/10886870567/ultimate-nmap-scan
 function nmap-ultimate() {
@@ -437,4 +430,22 @@ function nmap-ultimate() {
 
 alias pg_start="pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start"
 alias pg_stop="pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log stop"
+
+function block() {
+  if ! [ "$1" = "" ] ; then
+    case $1 in
+      on)
+        sudo ipfw add 7890 deny ip from news.ycombinator.com to any
+        sudo -s "echo '127.0.0.1 facebook.com' >> /etc/hosts"
+        sudo -s "echo '127.0.0.1 www.facebook.com' >> /etc/hosts"
+        ;;
+      off)
+        sudo ipfw del 7890
+        sudo sed -i'.bak' '/.*facebook.com/d' /etc/hosts
+        ;;
+    esac
+  else
+    echo "Usage: block [on|off]"
+  fi
+}
 
