@@ -449,3 +449,9 @@ function block() {
   fi
 }
 
+function plex_ir() {
+  killall -9 PlexHelper
+  sleep 1
+  /Applications/Plex.app/Contents/Resources/Plex/tools/osx/PlexHelper -x &
+}
+
