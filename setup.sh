@@ -31,6 +31,7 @@ relink .tmux.conf         ~/.dotfiles/tmux
 relink .vim               ~/.dotfiles/vim
 relink .vimrc             ~/.dotfiles/vim/vimrc
 relink .zshrc             ~/.dotfiles/zshrc
+relink .powconfig         ~/.dotfiles/powconfig
 
 cd -
 
