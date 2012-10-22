@@ -5,6 +5,12 @@ alias grep='GREP_COLOR="1;37;41" LANG=C grep --color=auto'
 
 alias ss='webkit2png --width=1024 -d --thumb --scale=1 --dir=~/Desktop/'
 
+function ss-responsive() {
+  webkit2png --width=480 -o $2-480px -d --thumb --scale=1 --dir=~/Desktop/ $1
+  webkit2png --width=720 -o $2-720px -d --thumb --scale=1 --dir=~/Desktop/ $1
+  webkit2png --width=1024 -o $2-1024px -d --thumb --scale=1 --dir=~/Desktop/ $1
+}
+
 # Utility
 alias reload='source ~/.dotfiles/bash/{aliases.bash,env.bash}'
 alias ea="$EDITOR ~/.dotfiles/bash/aliases.bash && reload" # Edit aliases
