@@ -22,3 +22,6 @@ export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
+
+# I don't like this new behavior in 1.7.10
+export GIT_MERGE_AUTOEDIT=no
