@@ -352,7 +352,7 @@ function s3put() {
 # Vim Utils
 # addVimPlugin git://github.com/vim-scripts/L9.git L9
 function addVim() {
-  cd ~/bin/dotfiles
+  cd ~/.dotfiles
   git submodule add $1 vim/bundle/$2
   git submodule init && git submodule update
   cd -
