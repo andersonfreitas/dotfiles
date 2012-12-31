@@ -15,34 +15,49 @@ brew install findutils
 # Install everything else
 brew install ack
 brew install autojump
-brew install class-dump
 brew install ctags
-brew install gfortran
 brew install git
 brew install git-flow
 brew install git-multipush
 brew install htop-osx
 brew install iftop
-brew install mysql
 brew install nmap
-brew install node
-brew install octave
-brew install otx --HEAD
+brew install mtr
 brew install pbzip2
-brew install phantomjs
-brew install postgres
 brew install python
-brew install r
-brew install redis
-brew install rtmpdump
 brew install s3cmd
 brew install ssh-copy-id
 brew install tree
 brew install watch
 brew install webkit2png
 brew install wget --enable-iri
-brew install youtube-dl
 brew install zsh
+
+# Web development
+brew install phantomjs
+brew install node
+brew install postgres
+brew install redis
+brew install mysql
+
+# Reversing
+brew install otx --HEAD
+brew install class-dump
+
+brew install youtube-dl
+brew install rtmpdump
+
+# R
+brew install gfortran
+brew install r
+
+# Octave
+brew install octave
+
+# OpenCV and SimpleCV (http://www.simplecv.org/docs/installation.html)
+brew install opencv
+brew install sdl sdl_image sdl_mixer sdl_ttf portmidi
+brew install smpeg --HEAD
 
 # brew install readline
 # rvm reinstall 1.9.3 --with-readline-dir=/usr/local/Cellar/readline/6.2.4
