@@ -163,3 +163,6 @@
 [submodule "vim/bundle/vim-processing"]
 	path = vim/bundle/vim-processing
 	url = git://github.com/sophacles/vim-processing.git
+[submodule "vim/bundle/vim-nerdtree-tabs"]
+	path = vim/bundle/vim-nerdtree-tabs
+	url = git://github.com/jistr/vim-nerdtree-tabs.git
