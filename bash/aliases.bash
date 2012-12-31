@@ -358,6 +358,7 @@ function addVim() {
   cd -
 }
 
+# use ssh-copy-id instead (from brew)
 # add-ssh-key user@host.com
 function add-ssh-key() {
   cat ~/.ssh/id_rsa.pub | ssh $1 "cat >> .ssh/authorized_keys"
