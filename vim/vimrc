@@ -71,7 +71,7 @@ set cursorline                    " underline the current line
 set guicursor+=n:blinkon0         " stop cursor from blinking in normal mode
 
 " using spaces to fill the diff. Should use high contrast!
-set fillchars=vert:\|,fold:·,diff:\     
+set fillchars=vert:\|,fold:·,diff:\
 
 set incsearch                     " Highlight matches as you type.
 set hlsearch                      " Highlight matches.
@@ -400,7 +400,7 @@ nnoremap <D-*> :let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>:set hls<CR>
 " !!date
 " !!ls
 
-nnoremap <Leader>u :GundoToggle<CR> 
+nnoremap <Leader>u :GundoToggle<CR>
 
 " Source a single line of Vimscript
 nnoremap <Leader>S ^vg_y:execute @@<CR>
@@ -419,9 +419,9 @@ map <SwipeLeft> :bprev<CR>
 map <SwipeRight> :bnext<CR>
 
 " When opening a file, always jump to the last cursor position
-autocmd BufReadPost *                                                           
-\ if line("'\"") > 0 && line ("'\"") <= line("$") |                             
-\   exe "normal g'\"" |                                                         
+autocmd BufReadPost *
+\ if line("'\"") > 0 && line ("'\"") <= line("$") |
+\   exe "normal g'\"" |
 \ endif
 
 " \ww for wrapping
@@ -436,10 +436,10 @@ vnoremap > >gv
 autocmd FileType gitcommit DiffGitCached | wincmd L | wincmd p
 
 " Save on FocusLost
-"au FocusLost * :silent! wall                 
+"au FocusLost * :silent! wall
 
 " Return to normal mode on FocustLost
-au FocusLost * call feedkeys("\<C-\>\<C-n>") 
+au FocusLost * call feedkeys("\<C-\>\<C-n>")
 
 " Keep search pattern at the center of the screen.
 nnoremap <silent> n nzz
@@ -516,8 +516,8 @@ function! s:ReadPwd()
   let pwd_file = $HOME . "/.vim/last-known-dir"
   if filereadable(pwd_file)
     let f = readfile(pwd_file)
-    echomsg "You're now at " . f[0] 
-    exec "cd " . f[0] 
+    echomsg "You're now at " . f[0]
+    exec "cd " . f[0]
   endif
 endfunction
 
