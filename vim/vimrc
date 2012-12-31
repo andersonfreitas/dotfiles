@@ -554,3 +554,4 @@ map <Leader>e :e <C-R>=expand("%:p:h") . '/'<CR>
 " Insert a Markdown table
 vmap <leader>tab r\|gvholr-gvjokr <cr>
 
+colorscheme Tomorrow-Night-Eighties
