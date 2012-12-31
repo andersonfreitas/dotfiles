@@ -15,6 +15,7 @@
 #defaults write NSGlobalDomain PMPrintingExpandedStateForPrint -bool true
 
 # Finder: allow quitting via ⌘ + Q; doing so will also hide desktop icons
+defaults delete com.apple.finder QuitMenuItem
 defaults write com.apple.finder QuitMenuItem -bool true
 
 # Finder: show status bar
