@@ -7,6 +7,7 @@ export EDITOR="subl -w"
 
 export PATH=~/bin:/usr/local/bin:/usr/local/sbin:$PATH
 # export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
+export PATH=/usr/local/share/python:$PATH
 export PATH="$(brew --repository)/Library/LinkedKegs/coreutils/libexec/gnubin:$PATH"
 
 export HISTSIZE=10000
@@ -25,3 +26,6 @@ export LC_ALL=en_US.UTF-8
 
 # I don't like this new behavior in 1.7.10
 export GIT_MERGE_AUTOEDIT=no
+
+
+export PYTHONPATH="/usr/local/lib/python2.7/site-packages:$PYTHONPATH"
