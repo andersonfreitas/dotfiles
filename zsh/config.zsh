@@ -8,7 +8,8 @@ zle -N zle-keymap-select
 bindkey -v
 
 function vi_mode_prompt_info() {
-  echo "${${KEYMAP/vicmd/-- NORMAL --}/(main|viins)/-- INSERT --}"
+  # echo "${${KEYMAP/vicmd/-- NORMAL --}/(main|viins)/-- INSERT --}"
+  echo "${${KEYMAP/vicmd/[N]}/(main|viins)/[I]}"
 }
 
 # External editor for command line editing (ESC-v)
@@ -35,7 +36,7 @@ PROMPT='
 %~
 ${smiley} %{$reset_color%}'
 
-RPROMPT='$(vi_mode_prompt_info) $(~/.rvm/bin/rvm-prompt)$(~/bin/git-cwd-info.rb)'
+RPROMPT='$(vi_mode_prompt_info) $(~/.rvm/bin/rvm-prompt)$(~/bin/git-cwd-info.rb) [%*]'
 
 function rbenv_prompt_info() {
   local ruby_version
