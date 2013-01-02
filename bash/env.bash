@@ -1,8 +1,8 @@
 export CLICOLOR=1
 #export EDITOR="mate -w"
 #export EDITOR="vim"
-#export EDITOR="mvim -f"
-export EDITOR="subl -w"
+export EDITOR="mvim -f"
+#export EDITOR="subl -w"
 #export EDITOR='mvim -f -c "au VimLeave * \!open -a iTerm"'
 
 export PATH=~/bin:/usr/local/bin:/usr/local/sbin:$PATH
