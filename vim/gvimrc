@@ -62,3 +62,7 @@ inoremap <4-MiddleMouse> <Nop>
 
 " Disable the MacVim contextual menu in order to use it for taglist navigation
 " defaults write org.vim.MacVim MMTranslateCtrlClick 0
+
+" Showing tab label as: "[1] .vimrc [+]"
+set guitablabel=[%N]\ %f\ :%m
+
