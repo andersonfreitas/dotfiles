@@ -12,10 +12,10 @@ function ss-responsive() {
 }
 
 # Utility
-alias reload='source ~/.dotfiles/bash/{aliases.bash,env.bash}'
+alias reload='source ~/.dotfiles/zsh/{aliases.zsh,env.zsh,config.zsh}'
 alias ea="$EDITOR ~/.dotfiles/bash/aliases.bash && reload" # Edit aliases
 alias ee="$EDITOR ~/.dotfiles/bash/env.bash && reload"
-alias ec="subl ~/.dotfiles/"
+alias ec="$EDITOR ~/.dotfiles/"
 
 # Common -- Some are from Damian Conway
 # alias a='ls -A' # -A all except literal . ..
