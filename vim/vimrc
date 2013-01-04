@@ -555,6 +555,4 @@ map <Leader>e :e <C-R>=expand("%:p:h") . '/'<CR>
 vmap <leader>tab r\|gvholr-gvjokr <cr>
 
 colorscheme Tomorrow-Night-Eighties
-" clear the flashing current line number
-autocmd VimEnter * high clear CursorLineNr
 
