@@ -463,3 +463,7 @@ function plex_ir() {
   /Applications/Plex.app/Contents/Resources/Plex/tools/osx/PlexHelper -x &
 }
 
+
+# Start or reconnect a tmux session over SSH
+ssht () { ssh -t "$1" 'tmux attach || tmux new' }
+
