@@ -175,3 +175,6 @@
 [submodule "vim/bundle/AfterColors.vim"]
 	path = vim/bundle/AfterColors.vim
 	url = git://github.com/vim-scripts/AfterColors.vim.git
+[submodule "vim/bundle/vimpanel"]
+	path = vim/bundle/vimpanel
+	url = git://github.com/mihaifm/vimpanel.git
