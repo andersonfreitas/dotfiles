@@ -27,7 +27,7 @@ function cdc() {
 }
 alias cls='clear; ls'
 alias ls='ls --color=auto'
-alias h='history'
+h() { if [ -z "$*" ]; then history 1; else history 1 | egrep "$@"; fi; }
 alias l.='ls -d .[^.]*'
 alias ll.='ls -l -d .[^.]*'
 alias l='ls -lhGt'  # -l long listing, most recent first
