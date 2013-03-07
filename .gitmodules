@@ -178,3 +178,6 @@
 [submodule "vim/bundle/vimpanel"]
 	path = vim/bundle/vimpanel
 	url = git://github.com/mihaifm/vimpanel.git
+[submodule "vim/bundle/vim-gitgutter.git"]
+	path = vim/bundle/vim-gitgutter.git
+	url = git://github.com/airblade/vim-gitgutter.git
