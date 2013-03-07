@@ -22,6 +22,7 @@ brew install git-multipush
 brew install htop-osx
 brew install iftop
 brew install nmap
+brew install ntfs-3g # Tuxera community version
 brew install mtr
 brew install pbzip2
 brew install python
@@ -30,6 +31,7 @@ brew install ssh-copy-id
 brew install tree
 brew install watch
 brew install webkit2png
+brew install wkhtmltopdf
 brew install wget --enable-iri
 brew install zsh
 
@@ -39,6 +41,9 @@ brew install node
 brew install postgres
 brew install redis
 brew install mysql
+
+# enable head-only formulae (like otx)
+brew tap homebrew/headonly
 
 # Reversing
 brew install otx --HEAD
