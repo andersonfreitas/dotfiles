@@ -181,3 +181,6 @@
 [submodule "vim/bundle/vim-gitgutter.git"]
 	path = vim/bundle/vim-gitgutter.git
 	url = git://github.com/airblade/vim-gitgutter.git
+[submodule "vim/bundle/vim-multiedit"]
+	path = vim/bundle/vim-multiedit
+	url = git://github.com/hlissner/vim-multiedit.git
