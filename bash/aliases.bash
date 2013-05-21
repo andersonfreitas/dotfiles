@@ -467,3 +467,18 @@ function plex_ir() {
 # Start or reconnect a tmux session over SSH
 ssht () { ssh -t "$1" 'tmux attach || tmux new' }
 
+# brew install ranger
+function ranger-cd {
+  tempfile=`mktemp`
+  ranger --choosedir="$tempfile" "${@:-$(pwd)}"
+  test -f "$tempfile" &&
+    if [ "$(cat -- "$tempfile")" != "$(echo -n `pwd`)" ]; then
+      cd -- "$(cat "$tempfile")"
+    fi
+    rm -f -- "$tempfile"
+}
+alias rcp="ranger-cd"
+
+# This binds Ctrl-O to ranger-cd:
+#bind '"\C-o":"ranger-cd\C-m"'
+
