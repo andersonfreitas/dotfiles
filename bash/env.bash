@@ -8,6 +8,9 @@ export EDITOR="mvim -f"
 export PATH=~/bin:/usr/local/bin:/usr/local/sbin:$PATH
 export PATH=/usr/local/share/python:$PATH
 
+# Node - NPM binaries
+export PATH=$PATH:/usr/local/share/npm/bin
+
 export HISTSIZE=10000
 export PROMPT_COMMAND='echo -ne "\033]0;${PWD/#$HOME/~}"; echo -ne "\007"'
 export PAGER='less' # less is more (than more)
