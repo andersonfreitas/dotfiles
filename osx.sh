@@ -69,3 +69,10 @@ killall Dock
 
 # Disable the MacVim contextual menu in order to use it for taglist navigation
 defaults write org.vim.MacVim MMTranslateCtrlClick 0
+
+# Enable at (man atrun)
+sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.atrun.plist
+
+# Restore Autoplay to QuickTime X  
+defaults write com.apple.QuickTimePlayerX MGPlayMovieOnOpen 1
+
