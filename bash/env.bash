@@ -27,5 +27,8 @@ export LC_ALL=en_US.UTF-8
 # I don't like this new behavior in 1.7.10
 export GIT_MERGE_AUTOEDIT=no
 
-
 export PYTHONPATH="/usr/local/lib/python2.7/site-packages:$PYTHONPATH"
+
+# VI mode in Bash
+set -o vi
+
