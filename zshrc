@@ -4,6 +4,8 @@ source ~/.dotfiles/zsh/aliases.zsh
 source ~/.dotfiles/zsh/save_current_dir.zsh
 source ~/.dotfiles/zsh/git-flow-completion.zsh
 
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
 # Add RVM to PATH for scripting
 # PATH=$PATH:$HOME/.rvm/
 
