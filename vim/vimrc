@@ -13,12 +13,23 @@ set runtimepath-=~/.vim/bundle/closetag.vim
 set runtimepath-=~/.vim/bundle/conque
 set runtimepath-=~/.vim/bundle/csapprox
 "set runtimepath-=~/.vim/bundle/ctrlp.vim
+
+" Creates a Bundle menu (slow)
 set runtimepath-=~/.vim/bundle/headlights
 set runtimepath-=~/.vim/bundle/vim-easymotion
 set runtimepath-=~/.vim/bundle/vim-fuzzyfinder
 set runtimepath-=~/.vim/bundle/vim-yankring
 set runtimepath-=~/.vim/bundle/vimroom
 set runtimepath-=~/.vim/bundle/xmledit
+set runtimepath-=~/.vim/bundle/vim-livedown
+
+set runtimepath-=~/.vim/bundle/syntastic
+"set runtimepath-=~/.vim/bundle/jedi-vim
+
+
+" Choose between delimitMate or smartinput
+"set runtimepath-=~/.vim/bundle/delimitMate
+set runtimepath-=~/.vim/bundle/vim-smartinput
 
 syntax enable                     " Turn on syntax highlighting.
 filetype plugin indent on         " Turn on file type detection.
@@ -80,6 +91,9 @@ set hlsearch                      " Highlight matches.
 nmap <silent> <leader>/ :nohlsearch<CR>
 "nnoremap <esc> :noh<return><esc>
 
+set splitright
+set splitbelow
+
 set wrap                          " Turn on line wrapping.
 set linebreak                     " Wrap line on words, not characters
 set scroll=10                     " Scroll N line with CTRL-U and CTRL-D
@@ -98,7 +112,7 @@ set directory=$HOME/.vim/tmp//,.  " Keep swap files in one location
 let g:MarkdownPreviewTMP = $HOME.'/.vim/markdown/'
 let g:MarkdownPreviewAlwaysOpen=0
 "autocmd BufWritePost *.md :MDP
-autocmd FileType markdown setlocal tabstop=4 shiftwidth=4
+autocmd FileType mkd setlocal tabstop=4 shiftwidth=4
 
 set tabstop=2                    " Global tab width.
 set shiftwidth=2                 " And again, related.
@@ -109,9 +123,11 @@ set nrformats+=alpha
 
 set laststatus=2                  " Show the status line all the time
 
+set suffixesadd+=.js,.coffee,.rb
+
 " Useful status information at bottom of screen
 set statusline=
-set statusline +=[%n]                          " buffer number
+"set statusline +=[%n]                          " buffer number
 set statusline +=[%{strlen(&fenc)?&fenc:&enc}] " file encoding
 set statusline +=%y                            " file type
 set statusline +=\ %<%f                        " file path (relative to current directory)
@@ -127,9 +143,13 @@ set statusline +=0x%04B\                       " character under cursor
 " Using the system clipboard as the default register
 "set clipboard=unnamed
 
+"set switchbuf=useopen,usetab
+set switchbuf=useopen
+
 " Automatic fold settings for specific files. Uncomment to use.
 autocmd FileType ruby setlocal foldmethod=syntax foldlevelstart=99 nofoldenable
 autocmd FileType css  setlocal foldmethod=indent shiftwidth=2 tabstop=2 foldlevelstart=99 nofoldenable
+autocmd FileType c setlocal foldmethod=syntax foldlevelstart=99 nofoldenable
 
 " XML wrapping
 let g:xml_syntax_folding=1
@@ -183,19 +203,40 @@ autocmd BufRead,BufNewFile Guardfile setlocal filetype=ruby
 autocmd BufRead,BufNewFile gitconfig setlocal filetype=gitconfig
 
 " Avoiding trailing white-space in Ruby files
-autocmd BufWritePre {*.rb,*.js,*.coffee,*.scss,*.haml} :%s/\s\+$//e
+autocmd BufWritePre {*.rb,*.js,*.coffee,*.scss,*.haml,*.rake,*.py} :%s/\s\+$//e
 
 " Always open a NERDTree
-"autocmd VimEnter * if argc() == 0 | NERDTree | endif
-"autocmd VimEnter * if argc() == 0 | wincmd p | endif
+autocmd VimEnter * if argc() == 0 || argv(0) == '.' | NERDTree | endif
+autocmd VimEnter * if argc() == 0 || argv(0) == '.' | wincmd p | endif
 
-" \t to open NERDTree
+" I want a different config for Vim when opening LaTeX files
+" but only when directly opening a .tex, inside a session is normal
+autocmd VimEnter * call s:PrepareLatexEnv()
+function! s:PrepareLatexEnv()
+  if argc() != 0
+    if stridx(argv(0), '.tex') > 0 || stridx(argv(0), '.md') > 0
+      set nonumber
+      set noruler
+      set lines=50 columns=180
+      set nocursorline
+      set laststatus=0
+      let &guifont=substitute(&guifont, '^\(.*\):h16$', '\1:h12', 'g')
+      colorscheme eclipse
+    endif
+  endif
+endf
+
+let g:nerdtree_tabs_open_on_gui_startup = 0
+
+" \n to open NERDTree
 map <Leader>n :NERDTreeToggle<CR>
 map <Leader>N :NERDTreeFind<CR>
 let NERDTreeShowBookmarks=1
 let NERDTreeMinimalUI=1
 let NERDTreeDirArrows=1
 let NERDTreeChDirMode=2
+
+let NERDTreeIgnore=['\.vim$', '\~$', '\.pyc$']
 
 " Command-/ to toggle comments
 map <D-/> <plug>NERDCommenterToggle<CR>
@@ -212,12 +253,12 @@ nnoremap j gj
 nnoremap k gk
 
 " Bubble single lines
-nmap <C-Up> ddkP
-nmap <C-Down> ddp
+nmap <leader><Up> ddkP
+nmap <leader><Down> ddp
 
 " Bubble multiple lines
-vmap <C-Up> xkP`[V`]
-vmap <C-Down> xp`[V`]
+vmap <leader><Up> xkP`[V`]
+vmap <leader><Down> xp`[V`]
 
 " Switch between the last two files
 nnoremap <leader><leader> <c-^>
@@ -244,9 +285,10 @@ imap <C-Space> <C-p>
 
 " Command-T configs
 let g:CommandTMaxHeight=10
-"let g:CommandTMatchWindowReverse=1
-let g:CommandTAcceptSelectionMap = '<C-t>'
-let g:CommandTAcceptSelectionTabMap = '<CR>'
+let g:CommandTMatchWindowReverse=1
+" Open Command+T in a new tab
+"let g:CommandTAcceptSelectionMap = '<C-t>'
+"let g:CommandTAcceptSelectionTabMap = '<CR>'
 
 "set listchars=tab:▸\ ,eol:¬,trail:·,nbsp:○,extends:→,precedes:←
 set listchars=tab:▸\ ,eol:¬,trail:·,nbsp:○,extends:❯,precedes:❮
@@ -255,6 +297,11 @@ set listchars=tab:▸\ ,eol:¬,trail:·,nbsp:○,extends:❯,precedes:❮
 syn match WhiteSpace / / conceal cchar=·
 command! ConcealWhiteSpaces setlocal conceallevel=2 concealcursor=nvi
 command! ShowWhiteSpaces setlocal conceallevel=0
+
+command! ShowTrailingWhiteSpaces syn match TrailingWhiteSpace /\S\zs\s\+$/
+autocmd Syntax * syn match TrailingWhiteSpace display excludenl /\S\zs\s\+$/
+high link TrailingWhiteSpace SpellBad
+"let c_space_errors=1
 
 " Automatically source vimrc as it's edited
 "autocmd bufwritepost {.vimrc,vimrc} source $MYVIMRC
@@ -303,15 +350,9 @@ endfunction
 
 autocmd FocusGained * :CommandTFlush
 
-" ConqueTerm
-"let g:ConqueTerm_Color          = 1
-let g:ConqueTerm_TERM           = 'xterm'
-let g:ConqueTerm_Syntax         = 'conque'
-let g:ConqueTerm_ReadUnfocused  = 1
-let g:ConqueTerm_CWInsert       = 1
-
 let g:EasyMotion_leader_key = '<Leader>'
 
+" Copy the current filename to paste buffer
 nmap cp :let @" = expand("%:p")
 
 " http://mislav.uniqpath.com/2011/12/vim-revisited/
@@ -336,19 +377,21 @@ nmap <leader>gd :Gdiff<CR>
 autocmd FileType ruby setlocal makeprg=ruby\ %   " ruby
 autocmd FileType sh   setlocal makeprg=%         " shell
 
+autocmd FileType tex  setlocal makeprg=latex-mk\ %
+
 " cmd+R to run the file
 map <D-r> :make<CR>
 imap <D-r> <esc>:make<CR>
 autocmd FileType ruby map <buffer> <D-r> :w ! ruby<cr>
 autocmd FileType ruby imap <buffer> <D-r> <esc>:w ! ruby<cr>
 
-"iabbrev ddate <C-r>=strftime("%F")<CR>
+iabbrev ddate <C-r>=strftime("%F")<CR>
 
 " \rs to remove trailings spaces
 map <leader>rs :%s/\s\+$//e<cr>
 
 " Utility to show the highlight group under the cursor.
-nmap <C-S-P> :call <SID>SynStack()<CR>
+map <leader>csp :echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')<cr>
 function! <SID>SynStack()
   if !exists("*synstack")
     return
@@ -371,7 +414,6 @@ autocmd FileType xml nnoremap <buffer> <F2> :silent 1,$!xmllint --encode UTF-8 -
 
 " Find a way to make it work with selections
 "autocmd FileType xml setlocal equalprg=xmllint\ --encode\ UTF-8\ --format\ --recover\ -\ 2>/dev/null
-
 
 " ============================
 " Tabularize - alignment
@@ -446,7 +488,7 @@ nnoremap <silent> n nzz
 nnoremap <silent> N Nzz
 "nnoremap <silent> * *zz
 "nnoremap <silent> # #zz
-"nnoremap <silent> g* g*zz
+nnoremap <silent> g* g*zz
 "nnoremap <silent> g# g#zz
 
 " Mark TaskPaper tasks @done with ⌘-d
@@ -483,10 +525,9 @@ nmap <leader>' cs"'
 map Q @@
 
 " Faster search & replace
-noremap ;; :%s:::g<Left><Left><Left>
+noremap ;: :%s:::g<Left><Left><Left>
 noremap ;' :%s:::cg<Left><Left><Left><Left>
-" TODO: use word under cursor as search or replace param
-"noremap ;w :%s:'<cword>'::cg<Left><Left><Left>
+noremap ;; :%s:<C-R><C-W>::cg<Left><Left><Left>
 
 function! s:ToggleSurroundingQuotes()
   " define 'surrounding' opening characters that we want to be able to change
@@ -510,7 +551,7 @@ function! s:ToggleSurroundingQuotes()
 endfunction
 
 command! ToggleSurroundingQuotes :call <sid>ToggleSurroundingQuotes()
-noremap <script> <silent> tsq :ToggleSurroundingQuotes<CR>
+noremap <script> <silent> <leader>csq :ToggleSurroundingQuotes<CR>
 
 function! s:ReadPwd()
   let pwd_file = $HOME . "/.vim/last-known-dir"
@@ -533,8 +574,8 @@ autocmd WinLeave * call s:SavePwd()
 nnoremap / /\v
 vnoremap / /\v
 
-autocmd FileType markdown nmap <buffer> <leader>= yypVr=
-autocmd FileType markdown nmap <buffer> <leader>- yypVr-
+autocmd FileType mkd nmap <buffer> <leader>= yypVr=
+autocmd FileType mkd nmap <buffer> <leader>- yypVr-
 
 " Auto correct to the first word in the dictionary
 nmap <leader>s 1z=]s
@@ -552,7 +593,34 @@ map <Leader>e :e <C-R>=expand("%:p:h") . '/'<CR>
 "set iskeyword-=_
 
 " Insert a Markdown table
-vmap <leader>tab r\|gvholr-gvjokr <cr>
+map <leader>tab r\|gvholr-gvjokr <cr>
 
-colorscheme Tomorrow-Night-Eighties
+"colorscheme Tomorrow-Night-Eighties
+colorscheme Tomorrow-Night
+
+let g:ackprg = 'ag --nogroup --nocolor --column'
+
+" Python Jedi
+let g:jedi#popup_on_dot = 0
+"let g:jedi#auto_initialization = 0
+"let g:jedi#use_tabs_not_buffers = 0
+let g:jedi#use_splits_not_buffers = "right"
+autocmd FileType python setlocal completeopt-=preview
+
+
+ 
+" TeX-9
+let g:tex_flavor = 'latex'
+let g:tex_nine_config = {
+      \'compiler': 'pdflatex',
+      \'viewer': {'app':'open', 'target':'pdf'},
+      \}
+let g:tex_fold_enabled = 1
+autocmd FileType tex vmap <buffer><expr> bf tex_nine#ChangeFontStyle('bf')
+autocmd FileType tex vmap <buffer><expr> it tex_nine#ChangeFontStyle('it')
+autocmd FileType tex vmap <buffer><expr> rm tex_nine#ChangeFontStyle('rm')
+autocmd FileType tex vmap <buffer><expr> sf tex_nine#ChangeFontStyle('sf')
+autocmd FileType tex vmap <buffer><expr> tt tex_nine#ChangeFontStyle('tt')
+autocmd FileType tex vmap <buffer> up di\text{}<Left><C-R>"
+autocmd FileType tex setlocal foldlevel=99
 

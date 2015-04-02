@@ -1,0 +1,3 @@
+#min    hour    mday    month   wday    command
+*/5 * * * * /Users/andersonfreitas/bin/screen.sh 
+

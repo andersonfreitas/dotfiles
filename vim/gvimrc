@@ -1,11 +1,11 @@
-set guifont=BitstreamVeraSansMono-Roman:h13            " Font family and font size.
-set antialias                     " MacVim: smooth fonts.
-set encoding=utf-8                " Use UTF-8 everywhere.
-set guioptions-=T                 " Hide toolbar.
-set background=dark               " Background.
-set lines=38 columns=130          " Window dimensions.
-"set guioptions-=r                 " Don't show right scrollbar
-set go-=L                         " Hide the left scrollbar
+set guifont=BitstreamVeraSansMono-Roman:h16 " Font family and font size.
+set antialias                               " MacVim: smooth fonts.
+set encoding=utf-8                          " Use UTF-8 everywhere.
+set guioptions-=T                           " Hide toolbar.
+set background=dark                         " Background.
+set lines=38 columns=130                    " Window dimensions.
+set guioptions-=r                           " Don't show right scrollbar
+set go-=L                                   " Hide the left scrollbar
 
 " Using Command+t for CommandT
 macmenu &File.New\ Tab key=<D-T>
@@ -26,9 +26,6 @@ map <D-F> :Ack<space>
 " use only in macvim
 set undodir=~/.vim/backups
 set undofile
-
-" Open Command+T in a new tab
-"let g:CommandTAcceptSelectionTabMap='<CR>'
 
 " C-TAB and C-SHIFT-TAB cycle tabs forward and backward
 nmap <c-tab> :tabnext<cr>

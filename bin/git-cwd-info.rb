@@ -23,7 +23,7 @@ def in_git_repo
 end
 
 def git_parse_branch
-  @git_parse_branch ||= `git current-branch`.chomp
+  `git symbolic-ref -q HEAD`.sub(/^refs\/heads\//, '').strip
 end
 
 def git_head_commit_id
@@ -31,7 +31,7 @@ def git_head_commit_id
 end
 
 def git_cwd_dirty
-  " ✗" unless git_repo_path == '.' || `git ls-files -m`.strip.empty?
+  ' 🚧' unless git_repo_path == '.' || `git ls-files -m`.strip.empty?
 end
 
 def rebasing_etc
@@ -45,5 +45,5 @@ def rebasing_etc
 end
 
 if in_git_repo
-  print " #{git_parse_branch} #{git_head_commit_id}#{rebasing_etc}#{git_cwd_dirty}"
+  print " #{git_parse_branch} #{git_head_commit_id}#{rebasing_etc}#{git_cwd_dirty || ' ✅'}"
 end

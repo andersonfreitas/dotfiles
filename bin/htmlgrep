@@ -4,7 +4,13 @@ require 'rubygems'
 require 'hpricot'
 require 'open-uri'
 
-file = open(ARGV[1]) if ARGV[1]
+# file = open(ARGV[1]) if ARGV[1]
+
 file ||= STDIN
 doc = Hpricot(file)
-puts doc / ARGV[0]
+puts (doc / ARGV[0])[ARGV[1]]
+
+
+# brew install pup instead!
+#
+#

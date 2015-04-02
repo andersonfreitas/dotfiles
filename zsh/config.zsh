@@ -7,6 +7,9 @@ zle -N zle-keymap-select
 
 bindkey -v
 
+# Reducing lag for entering VI mode in Zsh
+export KEYTIMEOUT=1
+
 function vi_mode_prompt_info() {
   # echo "${${KEYMAP/vicmd/-- NORMAL --}/(main|viins)/-- INSERT --}"
   echo "${${KEYMAP/vicmd/[N]}/(main|viins)/[I]}"
@@ -16,6 +19,9 @@ function vi_mode_prompt_info() {
 autoload -Uz edit-command-line
 zle -N edit-command-line
 bindkey -M vicmd v edit-command-line
+
+
+# echo "Ctrl + V + Fn + Delete" | od -c
 
 bindkey "\e[3~" delete-char # Del
 bindkey '^R' history-incremental-search-backward
@@ -30,13 +36,17 @@ setopt autocd
 setopt rmstarwait
 
 # Prompt
-local smiley="%(?,→%{$reset_color%},%{$fg[red]%}☹%{$reset_color%})"
+local smiley="%(?,→%{$reset_color%},%{$fg[red]%}💥 %{$reset_color%})"
+local smiley="%(?,→,💥 )"
 
 PROMPT='
 %~
 ${smiley} %{$reset_color%}'
 
-RPROMPT='$(vi_mode_prompt_info) $(~/.rvm/bin/rvm-prompt)$(~/bin/git-cwd-info.rb) [%*]'
+#RPROMPT='$(vi_mode_prompt_info) $(~/.rvm/bin/rvm-prompt)$(~/bin/git-cwd-info.rb) [%*]'
+#RPROMPT='$(vi_mode_prompt_info) $(rbenv_prompt_info)$(~/bin/git-cwd-info.rb)'
+RPROMPT='$(~/bin/git-cwd-info.rb)'
+#RPROMPT=''
 
 function rbenv_prompt_info() {
   local ruby_version
@@ -46,7 +56,6 @@ function rbenv_prompt_info() {
 #alias rvm-prompt=rbenv_prompt_info
 #alias rvm_prompt_info=rbenv_prompt_info
 
-#RPROMPT='$(vi_mode_prompt_info) $(rbenv_prompt_info)$(~/bin/git-cwd-info.rb)'
 
 # Show completion on first TAB
 setopt menucomplete
@@ -88,6 +97,9 @@ bindkey . rationalise-dot
 setopt CORRECT
 setopt CORRECTALL
 
+# unsetopt correctall
+
+
 setopt hist_ignore_dups     # ignore duplication command history list
 setopt share_history        # share command history data
 setopt HIST_IGNORE_SPACE
@@ -128,4 +140,6 @@ bindkey tetris tetris
 #setopt auto_cd
 #cdpath=($HOME/thoughtbot $HOME/src)
 
-
+unalias run-help
+autoload run-help
+HELPDIR=/usr/local/share/zsh/help

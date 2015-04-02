@@ -14,6 +14,7 @@ function ss-responsive() {
 # Utility
 alias reload='source ~/.dotfiles/zsh/{aliases.zsh,env.zsh,config.zsh}'
 alias ea="$EDITOR ~/.dotfiles/bash/aliases.bash && reload" # Edit aliases
+alias ea-subl="subl -w ~/.dotfiles/bash/aliases.bash && reload" # Edit aliases
 alias ee="$EDITOR ~/.dotfiles/bash/env.bash && reload"
 alias ec="$EDITOR ~/.dotfiles/"
 
@@ -27,7 +28,8 @@ function cdc() {
 }
 alias cls='clear; ls'
 alias ls='ls --color=auto'
-h() { if [ -z "$*" ]; then history 1; else history 1 | egrep "$@"; fi; }
+#alias h() { if [ -z "$*" ]; then history -i -D; else history -i -D | egrep "$@"; fi; }
+alias history='history -i -D'
 alias l.='ls -d .[^.]*'
 alias ll.='ls -l -d .[^.]*'
 alias l='ls -lhGt'  # -l long listing, most recent first
@@ -45,7 +47,7 @@ function mkcd() {
 
 function dec() {
 	jad -s java $1
-	mate `basename $1 .class`.java
+	subl `basename $1 .class`.java
 }
 
 function decdir() {
@@ -107,14 +109,13 @@ alias top=htop
 alias tu='htop --sort-key PERCENT_CPU' # cpu
 alias tm='htop --sort-key PERCENT_MEM' # memory
 
-
-
 alias orig-remove="find . -name '*.orig' -exec rm -rf {} \;"
 
 # Git
 #alias ungit="find . -name '.git' -exec rm -rf {} \;"
 alias gi='git add -i'
 alias gc='git commit -v'
+alias gcm="git commit -v -m '$*'"
 alias g.='git add .'
 alias gca='git commit -v -a'
 # Commit pending changes and quote all args as message
@@ -128,7 +129,7 @@ alias gw='git whatchanged'
 
 # git pull push origin current
 alias gppoc="BRANCH=`git branch --no-color 2>/dev/null | grep '*' | awk '{ print $2 }'` git pull origin $BRANCH && git push origin $BRANCH"
-alias gppom="git pull origin master && git push origin master"
+# alias gppom="git pull origin master && git push origin master"
 
 function gdiff() {
 	find . -name "*$**" -exec git diff HEAD -- {} +;
@@ -266,6 +267,9 @@ alias noidle="pmset noidle"
 # Upload a file using ditto and curl
 # ditto -cj build/Debug-iphonesimulator/YourApp.app - | curl -F "email=you@somewhere.com" -F "file=@-" http://www.pieceable.com/view/publish
 #
+
+#curl -F "file=@/var/backups/YourFile.tar.gz" http://curl.io/send/kewmfiqc
+# gpg -c "/var/backups/YourFile.tar.gz" && curl -F "file=@/var/backups/YourFile.tar.gz.gpg" http://curl.io/send/kewmfiqc
 
 # Random password generator
 # while true; do cat /dev/urandom | hexdump | tr -cd "a-z" | tr "a-z" "A-Z" | head -c3; echo ""; done;
@@ -439,6 +443,11 @@ alias pg_start="pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/ser
 alias pg_stop="pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log stop"
 
 alias redis-start="redis-server /usr/local/etc/redis.conf"
+
+# print 1 2 3
+# print -l 1 2 3
+# print -l **/*
+
 function block() {
   if ! [ "$1" = "" ] ; then
     case $1 in
@@ -457,12 +466,10 @@ function block() {
   fi
 }
 
-function plex_ir() {
-  killall -9 PlexHelper
-  sleep 1
-  /Applications/Plex.app/Contents/Resources/Plex/tools/osx/PlexHelper -x &
-}
+# gem install terminal-notifier
+alias notifyme="terminal-notifier -message 'Finished' -title 'Something'"
 
+alias gitpiv=". ~/Development/clones/git-pivotal-hooks/gitpiv-setup.sh"
 
 # Start or reconnect a tmux session over SSH
 ssht () { ssh -t "$1" 'tmux attach || tmux new' }
@@ -477,8 +484,105 @@ function ranger-cd {
     fi
     rm -f -- "$tempfile"
 }
-alias rcp="ranger-cd"
+alias rcd="ranger-cd"
+
+PWD_ENCRYPTED=~/Dropbox/Medscale/passwords.gpg
+PWD_EDIT=~/Desktop/passwords.txt
+
+function pwds-create {
+  vim -f $PWD_EDIT
+  gpg -o $PWD_ENCRYPTED -c $PWD_EDIT
+  rm $PWD_EDIT
+}
+
+function pwds-edit {
+  gpg -o $PWD_EDIT -d $PWD_ENCRYPTED
+  vim -f $PWD_EDIT
+  gpg -o $PWD_ENCRYPTED -c $PWD_EDIT
+  rm $PWD_EDIT
+}
+
+alias pwds-show="gpg --decrypt --force-mdc $PWD_ENCRYPTED"
+
+
+alias ffind="find . -name '$*'"
+
 
 # This binds Ctrl-O to ranger-cd:
 #bind '"\C-o":"ranger-cd\C-m"'
+
+
+## Make a simple compressed backup of a file or directory:
+#tar -cvzf [backup output.tgz] [target file or directory]
+
+## Open a compressed .tgz or .tar.gz file:
+#tar -xvf [target.tgz]
+
+## Encrypt a file:
+#gpg -o [outputfilename.gpg] -c [target file]
+
+## Decrypt a file:
+#gpg -o [outputfilename] -d [target.gpg]
+
+## Zip and encrypt a directory simultaneously:
+#gpg-zip -o encrypted-filename.tgz.gpg -c -s file-to-be-encrypted
+
+# remove spaces from filenames in current directory
+#rename -n 's/[\s]/''/g' *
+
+# change capitals to lowercase in filenames in current directory
+#rename 'y/A-Z/a-z/' *
+
+#* Pipe a compressed file over ssh to avoid creating large temporary .tgz files
+#'tar cz folder/ | ssh server "tar xz"'
+
+alias datafart='curl --data-binary @- datafart.com'
+
+alias pntb="ipython notebook --pylab inline"
+alias gist="gist -c -p"
+
+alias emacs="/usr/local/Cellar/emacs/24.3/Emacs.app/Contents/MacOS/Emacs -nw"
+
+## usage:
+# download-resume http://gen.lib.rus.ec/get?md5=cf879f9018516f928c591453518677df livro.pdf
+# download-resume http://gen.lib.rus.ec/get?md5=cf879f9018516f928c591453518677df
+# usar axel -a -n 5
+function curl-download-resume {
+  if [ $2 ]
+  then
+    echo "Baixando $1 como $2"
+    curl -C - -L -o $2 $1
+  else
+    echo "Baixando $1 com nome default"
+    curl -C - -L -O $1
+  fi
+}
+
+alias pdfscissors='java -jar ~/bin/pdfscissors.jar'
+
+
+alias download-history="sqlite3 ~/Library/Preferences/com.apple.LaunchServices.QuarantineEventsV* 'select LSQuarantineDataURLString from LSQuarantineEvent' | less"
+
+alias julia="/Applications/Julia-*.app/Contents/Resources/julia/bin/julia"
+
+function merge-master-deploy {
+  git co master
+  git pull origin master
+  git push origin master
+
+  git co $1
+  git pull origin $1
+  git merge master
+  git push origin $1
+
+  cap $1 deploy
+
+  git co master
+}
+
+
+function kill-select {
+  kill $(ps -e | awk '{if(NR!=1) { print $4, $1 }}' | peco | cut -f2 -d ' ')
+}
+
 

@@ -8,6 +8,9 @@ brew upgrade
 
 # Install GNU core utilities (those that come with OS X are outdated)
 brew install coreutils
+
+brew install moreutils --without-parallel
+
 echo "Don’t forget to add $(brew --prefix coreutils)/libexec/gnubin to \$PATH."
 # Install GNU `find`, `locate`, `updatedb`, and `xargs`, g-prefixed
 brew install findutils
@@ -22,7 +25,7 @@ brew install git-multipush
 brew install htop-osx
 brew install iftop
 brew install nmap
-brew install ntfs-3g # Tuxera community version
+#brew install ntfs-3g # Tuxera community version (Slow!)
 brew install mtr
 brew install pbzip2
 brew install python
@@ -37,13 +40,35 @@ brew install wkhtmltopdf
 brew install wget --enable-iri
 brew install zsh
 brew install spark # ▁▂▃▅▂▇ in your shell
+brew install axel # wget with auto-resume and multiple connections
+brew install pup  # like html grep
+brew install peco # interactive grep
+brew install parallel
+brew install archey
+brew install cv  # coreutils viewer (monitor performance of coreutils)
+brew install djvu2pdf
+#brew install homebank
+brew install ffmpeg --with-fdk-aac --with-ffplay --with-freetype --with-frei0r --with-libass --with-libvo-aacenc --with-libvorbis --with-libvpx --with-opencore-amr --with-openjpeg --with-opus --with-rtmpdump --with-schroedinger --with-speex --with-theora --with-tools
+brew install the_silver_searcher
+brew install unrar
+brew install imagesnap
+
+brew install rename
+tmux
+sl
+massren
+gnuplot
+
+brew install q # sql on csv (github.com/harelba/q)
 
 # Web development
 brew install phantomjs
 brew install node
-brew install postgres
+brew install postgresql
 brew install redis
-brew install mysql
+#brew install mysql
+brew install percona-server
+brew install innotop
 brew install jq # json sed
 
 # enable head-only formulae (like otx)
@@ -61,7 +86,7 @@ brew install gfortran
 brew install r
 
 # Octave
-brew install octave
+#brew install octave
 
 # OpenCV and SimpleCV (http://www.simplecv.org/docs/installation.html)
 brew install opencv
@@ -73,3 +98,13 @@ brew install smpeg --HEAD
 
 # Remove outdated versions from the cellar
 brew cleanup
+
+# python - pip
+pip install simplecv
+pip install numpy scipy matplotlib dateutil pandas
+pip install pygame
+pip install git-remote-helpers
+pip install pygments # jekyll
+pip install pyobjc # for webkit2png
+pip install pyhn   # hacker news on terminal
+
