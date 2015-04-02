@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# This file is for iTerm2 users.
+#
+# Put this file in /usr/local/bin/iterm-cmd-click-emacsclient
+#
+# You'll need to do the following at command line...
+# $ defaults write com.googlecode.iterm2 SemanticHistoryHandler ~/bin/subl-iterm2
+# subl "$1:$2"
+subl "$1"

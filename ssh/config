@@ -1,22 +1,3 @@
-Host qa
-  HostName 177.71.189.26
-  User medscale
-  ForwardAgent yes
-
-Host staging
-  HostName 107.20.169.249
-  User medscale 
-  ForwardAgent yes
-  #IdentityFile ~/Dropbox/Medscale/AmazonAWS/medscale.pem
-
-Host med01
-  HostName 177.71.187.175
-  User medscale 
-
-Host med02
-  HostName 177.71.187.176
-  User medscale
-
 Host *
   # Causes problems with Capistrano: "zlib(finalizer): the stream was freed prematurely."
   #Compression yes
@@ -27,3 +8,10 @@ Host *
   #UserKnownHostsFile /dev/null
   #StrictHostKeyChecking no
 
+  ServerAliveInterval 240
+
+# Use this trick to directly access 'host2' which is on a private
+# network, and must be accessed by ssh-ing into 'host1' first
+# Host host2
+#  ProxyCommand ssh -T host1 'nc %h %p'
+#  HostName host2
