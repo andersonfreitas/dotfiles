@@ -193,3 +193,18 @@
 [submodule "vim/bundle/jedi-vim"]
 	path = vim/bundle/jedi-vim
 	url = git@github.com:davidhalter/jedi-vim.git
+[submodule "vim/bundle/latex-box-vim"]
+	path = vim/bundle/latex-box-vim
+	url = git@github.com:LaTeX-Box-Team/LaTeX-Box.git
+[submodule "vim/bundle/atp-vim"]
+	path = vim/bundle/atp-vim
+	url = git://git.code.sf.net/p/atp-vim/code
+[submodule "vim/bundle/vim-livedown"]
+	path = vim/bundle/vim-livedown
+	url = git://github.com/shime/vim-livedown.git
+[submodule "vim/bundle/TeX-9"]
+	path = vim/bundle/TeX-9
+	url = git@github.com:vim-scripts/TeX-9.git
+[submodule "vim/bundle/vim-cpp-enhanced-highlight"]
+	path = vim/bundle/vim-cpp-enhanced-highlight
+	url = git@github.com:octol/vim-cpp-enhanced-highlight.git
