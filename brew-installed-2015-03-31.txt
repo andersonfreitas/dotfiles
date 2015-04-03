@@ -1,213 +1,67 @@
-ack
-ant
-archey
-arpack
-asciidoc
-astyle
-atk
-autoconf
-autojump
-automake
-axel
-bazaar
-bison
-boost
-boot2docker
-brew-cask
-bullet
-cairo
-class-dump
-cloog
-cmake
-coreutils
-cscope
-ctags
-curl
-cv
-darcs
-djvu2pdf
-djvulibre
-docbook
-docbook-xsl
-docker
-dotwrp
-doxygen
-e2fsprogs
-eigen
-emacs
-ext2fuse
-faac
-fdk-aac
-ffmpeg
-fftw
-figlet
-findutils
-fish
-flac
-fltk
-fontconfig
-freetype
-frei0r
-fribidi
-fuse4x
-fuse4x-kext
-gawk
-gcal
-gcc
-gd
-gdbm
-gdk-pixbuf
-gettext
-gfortran
-ghostscript
-gist
-git
-git-extras
-git-flow
-git-multipush
-glib
-glpk
-gmp
-gnome-doc-utils
-gnu-sed
-gnupg
-gnuplot
-go
-gobject-introspection
-gpac
-graphicsmagick
-graphviz
-grc
-gtk+
-harfbuzz
-hdf5
-hercules
-hicolor-icon-theme
-homebank
-htop-osx
-icdiff
-icu4c
-iftop
-ilmbase
-imagemagick
-imagesnap
-intltool
-isl
-jasper
-jbig2dec
-jp2a
-jpeg
-jpeg-turbo
-jpegoptim
-jq
-jsl
-lame
-latex-mk
-libass
-libevent
-libffi
-libgpg-error
-libksba
-libmikmod
-libmpc
-libofx
-libogg
-libpng
-libtiff
-libtool
-libvo-aacenc
-libvorbis
-libvpx
-libxml2
-libyaml
-little-cms2
-lua
-luajit
-massren
-maven
-mercurial
-moreutils
-mpfr
-mtr
-nasm
-neovim
-nginx
-nmap
-node
-ntfs-3g
-open-sp
-opencore-amr
-openexr
-openjpeg
-openssl
-opus
-orc
-ossp-uuid
-osxfuse
-otx
-pango
-parallel
-pbzip2
-pcre
-pdflib-lite
-peco
-percona-server
-phantomjs
-pidof
-pixman
-pkg-config
-portmidi
-postgresql
-pyenv
-pypy
-python
-python3
-q
-qhull
-qrupdate
-qt
-r
-ranger
-readline
-redis
-rename
-rlwrap
-rtmpdump
-s3cmd
-schroedinger
-scrollkeeper
-sdl
-sdl_image
-sdl_mixer
-sdl_ttf
-sip
-sl
-spark
-speex
-sqlite
-ssh-copy-id
-suite-sparse
-szip
-tbb
-texi2html
-texinfo
-the_silver_searcher
-theora
-tidy
-tig
-tmux
-tree
-unrar
-veclibfort
-watch
-webkit2png
-webp
-wget
-x264
-x3270
-xvid
-xz
-yasm
-youtube-dl
-zsh
-zsh-syntax-highlighting
+brew install astyle
+brew install axel
+brew install bazaar
+brew install brew-cask
+brew install class-dump
+brew install ctags
+brew install curl
+brew install djvu2pdf
+brew install doxygen
+brew install figlet
+brew install gcal
+brew install gcc
+brew install gist
+brew install git
+brew install git-extras
+brew install git-flow
+brew install git-multipush
+brew install gnupg
+brew install gnuplot
+brew install go
+brew install graphicsmagick
+brew install graphviz
+brew install htop-osx
+brew install icdiff
+brew install iftop
+brew install imagesnap
+brew install jq
+brew install latex-mk
+brew install massren
+brew install maven
+brew install mercurial
+brew install moreutils
+brew install mtr
+brew install nmap
+brew install node
+brew install otx
+brew install parallel
+brew install pbzip2
+brew install peco
+brew install percona-server
+brew install postgresql
+brew install pyenv
+brew install pypy
+brew install q
+brew install r
+brew install ranger
+brew install readline
+brew install redis
+brew install rename
+brew install rlwrap
+brew install rtmpdump
+brew install sl
+brew install spark
+brew install sqlite
+brew install ssh-copy-id
+brew install the_silver_searcher
+brew install tidy
+brew install tig
+brew install tmux
+brew install tree
+brew install unrar
+brew install watch
+brew install webkit2png
+brew install wget
+brew install youtube-dl
+brew install zsh
+brew install zsh-syntax-highlighting

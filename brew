@@ -6,6 +6,10 @@ brew update
 # Upgrade any already-installed formulae
 brew upgrade
 
+# enable head-only formulae (like otx)
+brew tap homebrew/headonly
+brew tap homebrew/science
+
 # Install GNU core utilities (those that come with OS X are outdated)
 brew install coreutils
 
@@ -16,95 +20,64 @@ echo "Don’t forget to add $(brew --prefix coreutils)/libexec/gnubin to \$PATH.
 brew install findutils
 
 # Install everything else
-brew install ack
+brew install ag # ack
+brew install astyle
 brew install autojump
+brew install axel # wget with auto-resume and multiple connections
 brew install ctags
+brew install cv  # coreutils viewer (monitor performance of coreutils)
+brew install djvu2pdf
+brew install ffmpeg --with-fdk-aac --with-ffplay --with-freetype --with-frei0r --with-libass --with-libvo-aacenc --with-libvorbis --with-libvpx --with-opencore-amr --with-openjpeg --with-opus --with-rtmpdump --with-schroedinger --with-speex --with-theora --with-tools
 brew install git
 brew install git-flow
 brew install git-multipush
+brew install gnuplot
+brew install graphicsmagick #instead of imagemagick 
 brew install htop-osx
 brew install iftop
-brew install nmap
-#brew install ntfs-3g # Tuxera community version (Slow!)
-brew install mtr
-brew install pbzip2
-brew install python
-brew install ranger
-brew install s3cmd
-brew install ssh-copy-id
-brew install tig
-brew install tree
-brew install watch
-brew install webkit2png
-brew install wkhtmltopdf
-brew install wget --enable-iri
-brew install zsh
-brew install spark # ▁▂▃▅▂▇ in your shell
-brew install axel # wget with auto-resume and multiple connections
-brew install pup  # like html grep
-brew install peco # interactive grep
-brew install parallel
-brew install archey
-brew install cv  # coreutils viewer (monitor performance of coreutils)
-brew install djvu2pdf
-#brew install homebank
-brew install ffmpeg --with-fdk-aac --with-ffplay --with-freetype --with-frei0r --with-libass --with-libvo-aacenc --with-libvorbis --with-libvpx --with-opencore-amr --with-openjpeg --with-opus --with-rtmpdump --with-schroedinger --with-speex --with-theora --with-tools
-brew install the_silver_searcher
-brew install unrar
 brew install imagesnap
-
-brew install rename
-tmux
-sl
-massren
-gnuplot
-
-brew install q # sql on csv (github.com/harelba/q)
-
-# Web development
-brew install phantomjs
-brew install node
-brew install postgresql
-brew install redis
-#brew install mysql
-brew install percona-server
 brew install innotop
 brew install jq # json sed
-
-# enable head-only formulae (like otx)
-brew tap homebrew/headonly
-
-# Reversing
+brew install massren
+brew install mtr
+brew install nmap
+brew install node
+brew install parallel
+brew install pbzip2
+brew install peco # interactive grep
+brew install percona-server # mysql
+brew install phantomjs
+brew install postgresql
+brew install pup  # like html grep
+brew install q # sql on csv (github.com/harelba/q)
+brew install ranger
+brew install redis
+brew install rename
+brew install sl
+brew install spark # ▁▂▃▅▂▇ in your shell
+brew install ssh-copy-id
+brew install tig
+brew install tmux
+brew install tree
+brew install unrar
+brew install watch
+brew install webkit2png
+brew install wget --enable-iri
+brew install wkhtmltopdf
+brew install zsh
 brew install otx --HEAD
 brew install class-dump
-
 brew install youtube-dl
-brew install rtmpdump
-
-# R
-brew install gfortran
 brew install r
 
-# Octave
-#brew install octave
-
 # OpenCV and SimpleCV (http://www.simplecv.org/docs/installation.html)
-brew install opencv
-brew install sdl sdl_image sdl_mixer sdl_ttf portmidi
-brew install smpeg --HEAD
+#brew install opencv
+#brew install sdl sdl_image sdl_mixer sdl_ttf portmidi
+#brew install smpeg --HEAD
 
 # brew install readline
 # rvm reinstall 1.9.3 --with-readline-dir=/usr/local/Cellar/readline/6.2.4
 
 # Remove outdated versions from the cellar
 brew cleanup
-
-# python - pip
-pip install simplecv
-pip install numpy scipy matplotlib dateutil pandas
-pip install pygame
-pip install git-remote-helpers
-pip install pygments # jekyll
-pip install pyobjc # for webkit2png
-pip install pyhn   # hacker news on terminal
 
