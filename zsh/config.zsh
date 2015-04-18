@@ -43,19 +43,9 @@ PROMPT='
 %~
 ${smiley} %{$reset_color%}'
 
-#RPROMPT='$(vi_mode_prompt_info) $(~/.rvm/bin/rvm-prompt)$(~/bin/git-cwd-info.rb) [%*]'
-#RPROMPT='$(vi_mode_prompt_info) $(rbenv_prompt_info)$(~/bin/git-cwd-info.rb)'
-RPROMPT='$(~/bin/git-cwd-info.rb)'
+RPROMPT='$(~/.rvm/bin/rvm-prompt)$(~/bin/git-cwd-info.rb)'
+#RPROMPT='$(~/bin/git-cwd-info.rb)'
 #RPROMPT=''
-
-function rbenv_prompt_info() {
-  local ruby_version
-  ruby_version=$(rbenv version 2> /dev/null) || return
-  echo "‹$ruby_version" | sed 's/[ \t].*$/›/'
-}
-#alias rvm-prompt=rbenv_prompt_info
-#alias rvm_prompt_info=rbenv_prompt_info
-
 
 # Show completion on first TAB
 setopt menucomplete
