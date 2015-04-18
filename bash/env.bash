@@ -33,9 +33,6 @@ export GOPATH=/usr/local/opt/go
 
 export PATH=$PATH:$GOPATH/bin
 
-# RVM
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
-
 # I don't like this new behavior in 1.7.10
 export GIT_MERGE_AUTOEDIT=no
 
@@ -45,7 +42,7 @@ export GIT_MERGE_AUTOEDIT=no
 # VI mode in Bash
 set -o vi
 
-GZIP=-9
+export GZIP=-9
 
 # Added by Canopy installer on 2014-03-16
 # VIRTUAL_ENV_DISABLE_PROMPT can be set to '' to make bashprompt show that Canopy is active, otherwise 1
@@ -63,6 +60,6 @@ export DOCKER_TLS_VERIFY=1
 
 # Android
 export NDKROOT=~/Development/android/ndk
-export ANDROID_ROOT=~/Development/android/sdk/
+export ANDROID_ROOT=~/Development/android/sdk
 export PATH=$PATH:$ANDROID_ROOT/tools
 export PATH=$PATH:$ANDROID_ROOT/platform-tools

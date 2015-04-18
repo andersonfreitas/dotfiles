@@ -68,8 +68,6 @@ zstyle ':completion:*:kill:*' force-list always
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#) ([0-9a-z-]#)*=01;34=0=01'
 zstyle ':completion:*:*:*:*:processes' command "ps -u `whoami` -o pid,user,comm -w -w"
 
-
-
 # always use the menu
 zstyle ':completion:*' menu select=0 select=long-list
 
@@ -126,7 +124,7 @@ REPORTTIME=10 # Show elapsed time if command took more than X seconds
 LISTMAX=0 # ask to complete if top of list would scroll off screen
 
 # Load completions for Ruby, Git, etc.
-autoload compinit
+autoload -Uz compinit
 compinit
 
 # Make CTRL-W delete after other chars, not just spaces
