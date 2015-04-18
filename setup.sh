@@ -15,7 +15,6 @@ function relink() {
 cd ~
 mkdir -p .ssh
 relink bin                ~/.dotfiles/bin
-relink .ackrc             ~/.dotfiles/ackrc
 relink .bash_profile      ~/.dotfiles/bashrc
 relink .bashrc            ~/.dotfiles/bashrc
 relink .gdbinit           ~/.dotfiles/gdbinit

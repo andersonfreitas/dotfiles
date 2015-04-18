@@ -1,7 +1,0 @@
---type-add=ruby=.haml,.rake
---type-add=html=.html.haml
---type-add=css=.scss,.sass
---type-add=js=.coffee,.js.haml,.js.erb,.eco,.jst
-
---type-set=haml=.haml
-
