@@ -208,3 +208,6 @@
 [submodule "vim/bundle/vim-cpp-enhanced-highlight"]
 	path = vim/bundle/vim-cpp-enhanced-highlight
 	url = git@github.com:octol/vim-cpp-enhanced-highlight.git
+[submodule "vim/bundle/vim-jsx"]
+	path = vim/bundle/vim-jsx
+	url = https://github.com/mxw/vim-jsx.git
