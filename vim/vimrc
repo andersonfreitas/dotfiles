@@ -12,7 +12,7 @@ set runtimepath-=~/.vim/bundle/bufexplorer
 set runtimepath-=~/.vim/bundle/closetag.vim
 set runtimepath-=~/.vim/bundle/conque
 set runtimepath-=~/.vim/bundle/csapprox
-"set runtimepath-=~/.vim/bundle/ctrlp.vim
+set runtimepath-=~/.vim/bundle/ctrlp.vim
 
 " Creates a Bundle menu (slow)
 set runtimepath-=~/.vim/bundle/headlights
@@ -24,8 +24,6 @@ set runtimepath-=~/.vim/bundle/xmledit
 set runtimepath-=~/.vim/bundle/vim-livedown
 
 set runtimepath-=~/.vim/bundle/syntastic
-"set runtimepath-=~/.vim/bundle/jedi-vim
-
 
 " Choose between delimitMate or smartinput
 "set runtimepath-=~/.vim/bundle/delimitMate
@@ -264,8 +262,8 @@ vmap <leader><Down> xp`[V`]
 nnoremap <leader><leader> <c-^>
 
 " Solarized Colorscheme Config
-let g:solarized_diffmode="high"
-colorscheme solarized
+"let g:solarized_diffmode="high"
+"colorscheme solarized
 
 " Easy window navigation
 map <C-h> <C-w>h
