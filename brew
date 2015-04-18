@@ -25,11 +25,10 @@ brew install astyle
 brew install autojump
 brew install axel # wget with auto-resume and multiple connections
 brew install bazaar
-brew install brew-cask
-brew install class-dump
+#brew install class-dump # requires XCode 
 brew install ctags
 brew install curl
-brew install cv  # coreutils viewer (monitor performance of coreutils)
+brew install cv --HEAD  # coreutils viewer (monitor performance of coreutils)
 brew install djvu2pdf
 brew install doxygen
 brew install ffmpeg --with-fdk-aac --with-ffplay --with-freetype --with-frei0r --with-libass --with-libvo-aacenc --with-libvorbis --with-libvpx --with-opencore-amr --with-openjpeg --with-opus --with-rtmpdump --with-schroedinger --with-speex --with-theora --with-tools
@@ -49,19 +48,19 @@ brew install graphviz
 brew install htop-osx
 brew install icdiff
 brew install iftop
-brew install imagesnap
+#brew install imagesnap # requires XCode
 brew install innotop
 brew install jq # json sed
 brew install latex-mk
-brew install massren
+brew install laurent22/massren/massren
 brew install maven
 brew install mercurial
 brew install moreutils
 brew install mtr
 brew install nmap
 brew install node
-brew install otx --HEAD
-brew install parallel
+#brew install otx --HEAD # full XCode required
+brew install parallel --force
 brew install pbzip2
 brew install peco # interactive grep
 brew install percona-server # mysql
@@ -82,14 +81,14 @@ brew install sl
 brew install spark # ▁▂▃▅▂▇ in your shell
 brew install sqlite
 brew install ssh-copy-id
-brew install tidy
+brew install homebrew/dupes/tidy
 brew install tig
 brew install tmux
 brew install tree
 brew install unrar
 brew install watch
 brew install webkit2png
-brew install wget --enable-iri
+brew install wget --with-iri
 brew install youtube-dl
 brew install zsh
 brew install zsh-syntax-highlighting
