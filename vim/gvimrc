@@ -1,4 +1,4 @@
-set guifont=BitstreamVeraSansMono-Roman:h16 " Font family and font size.
+set guifont=DejaVu_Sans_Mono_for_Powerline:h16 " Font family and font size.
 set antialias                               " MacVim: smooth fonts.
 set encoding=utf-8                          " Use UTF-8 everywhere.
 set guioptions-=T                           " Hide toolbar.

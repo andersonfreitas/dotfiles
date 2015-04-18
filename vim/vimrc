@@ -624,3 +624,6 @@ autocmd FileType tex vmap <buffer><expr> tt tex_nine#ChangeFontStyle('tt')
 autocmd FileType tex vmap <buffer> up di\text{}<Left><C-R>"
 autocmd FileType tex setlocal foldlevel=99
 
+" vim-airline
+let g:airline_powerline_fonts = 1
+
